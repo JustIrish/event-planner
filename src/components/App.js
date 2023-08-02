@@ -1,21 +1,21 @@
+import { Routes, Route } from 'react-router-dom';
+import { lazy } from 'react';
+import SharedLayout from './SharedLayout/SharedLayout';
+
+const Home = lazy(() => import('../pages/HomePage'));
+const CreateEvent = lazy(() => import('../pages/CreateEventPage'));
+const EventDetails = lazy(() => import('../pages/EventDetailsPage'));
+
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        {/* <img src={logo} className="App-logo" alt="logo" /> */}
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path="/" element={<SharedLayout />}>
+        <Route index element={<Home />} />
+        <Route path="/create" element={<CreateEvent />} />
+        <Route path="/details" element={<EventDetails />} />
+        <Route path="*" element={<Home />} />
+      </Route>
+    </Routes>
   );
 }
 
