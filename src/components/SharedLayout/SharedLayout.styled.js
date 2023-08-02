@@ -17,7 +17,6 @@ export const Header = styled.header`
 
 export const HeaderTitle = styled.div`
   color: #7b61ff;
-  font-family: Alata;
   font-size: 24px;
   font-style: normal;
   font-weight: 400;
