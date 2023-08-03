@@ -19,15 +19,44 @@ export const CardList = styled.ul`
 export const Card = styled.li`
   display: flex;
   flex-direction: column;
+  min-height: 480px;
   position: relative;
   box-shadow: 2px 4px 9px 0px rgba(166, 141, 174, 0.28);
   border-radius: 12px;
+  transform: translateY(0);
 
   ${mediaQueries('tablet')`
      flex-basis: calc((100% - 24px) / 2);`};
 
   ${mediaQueries('desktop')`
   flex-basis: calc((100% - 72px) / 4);`};
+`;
+
+export const Wrapper = styled.div`
+  position: relative;
+
+  button {
+    display: none;
+  }
+
+  /* transition: transform 500ms cubic-bezier(0.165, 0.84, 0.44, 1); */
+
+  &:hover {
+    div {
+      top: 230px;
+    }
+    button {
+      position: absolute;
+      z-index: 5;
+      right: 16px;
+      bottom: -142px;
+      display: block;
+      margin-top: 8px;
+      padding: 10px 24px;
+      width: 114px;
+      font-size: 14px;
+    }
+  }
 `;
 
 export const Image = styled.img`
@@ -38,10 +67,14 @@ export const Image = styled.img`
   border-top-right-radius: 8px;
 `;
 
-export const FlexWrap = styled.div`
+export const Action = styled.div`
   position: absolute;
+  top: 281px;
+`;
+
+export const FlexWrap = styled.div`
   width: 100%;
-  top: 280px;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -57,6 +90,7 @@ export const TextInfo = styled.p`
 
 export const PositionWrap = styled.div`
   position: absolute;
+  z-index: 10;
   top: 12px;
   left: 12px;
   display: flex;
@@ -75,6 +109,7 @@ export const Mark = styled.p`
 
 export const DescWrap = styled.div`
   padding: 16px;
+  background-color: #fff;
 `;
 
 export const Title = styled.h2`
@@ -88,5 +123,4 @@ export const Title = styled.h2`
 export const DescText = styled.p`
   color: #49454f;
   font-size: 14px;
-  background-color: #fff;
 `;
