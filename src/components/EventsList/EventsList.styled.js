@@ -8,7 +8,7 @@ export const CardList = styled.ul`
   padding: 40px 0;
 
   ${mediaQueries('tablet')`
-    padding: 24px 0 40px`};
+    padding: 24px 0 40px;`};
 
   ${mediaQueries('desktop')`
    column-gap: 24px;
@@ -20,21 +20,19 @@ export const Card = styled.li`
   display: flex;
   flex-direction: column;
   position: relative;
-  /* width: 272px; */
   box-shadow: 2px 4px 9px 0px rgba(166, 141, 174, 0.28);
   border-radius: 12px;
 
-  @media screen and (min-width: 790px) {
-    flex-basis: calc((100% - 20px) / 2);
-  }
-  @media screen and (min-width: 1440px) {
-    flex-basis: calc((100% - 96px) / 3);
-  }
+  ${mediaQueries('tablet')`
+     flex-basis: calc((100% - 24px) / 2);`};
+
+  ${mediaQueries('desktop')`
+  flex-basis: calc((100% - 72px) / 4);`};
 `;
 
 export const Image = styled.img`
   width: 100%;
-  height: 312px;
+  height: 320px;
   object-fit: cover;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
@@ -43,7 +41,7 @@ export const Image = styled.img`
 export const FlexWrap = styled.div`
   position: absolute;
   width: 100%;
-  top: 272px;
+  top: 280px;
   display: flex;
   align-items: center;
   justify-content: space-between;

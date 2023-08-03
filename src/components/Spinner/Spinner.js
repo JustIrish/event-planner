@@ -10,7 +10,7 @@ const Spinner = () => {
       }}
     >
       <RotatingLines
-        strokeColor="#a6b7c9"
+        strokeColor="rgba(123, 97, 255, 0.64)"
         strokeWidth="5"
         animationDuration="0.75"
         width="96"
