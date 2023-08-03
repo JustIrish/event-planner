@@ -1,5 +1,5 @@
 import { createSlice, nanoid } from '@reduxjs/toolkit';
-import eventsList from './../../data/eventsList.json';
+import eventsList from 'data/eventsList.json';
 
 const eventsInitialState = {
   events: eventsList,

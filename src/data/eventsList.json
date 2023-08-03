@@ -7,7 +7,7 @@
     "time": "12:00",
     "location": "Kyiv",
     "category": "Art",
-    "picture": "./../images/art.jpg",
+    "picture": "images/art.jpg",
     "priority": "High"
   },
   {
@@ -18,7 +18,7 @@
     "time": "12:00",
     "location": "Kyiv",
     "category": "Conference",
-    "picture": "./../images/summit.jpg",
+    "picture": "images/summit.jpg",
     "priority": "Medium"
   },
   {
@@ -29,7 +29,7 @@
     "time": "12:00",
     "location": "Kyiv",
     "category": "Workshop",
-    "picture": "./../images/training.jpg",
+    "picture": "images/training.jpg",
     "priority": "High"
   },
   {
@@ -40,7 +40,7 @@
     "time": "12:00",
     "location": "Kyiv",
     "category": "Party",
-    "picture": "./../images/banquet.jpg",
+    "picture": "images/banquet.jpg",
     "priority": "High"
   },
   {
@@ -51,7 +51,7 @@
     "time": "12:00",
     "location": "Kyiv",
     "category": "Business",
-    "picture": "./../images/conference.jpg",
+    "picture": "images/conference.jpg",
     "priority": "Medium"
   },
   {
@@ -62,7 +62,7 @@
     "time": "12:00",
     "location": "Kyiv",
     "category": "Workshop",
-    "picture": "./../images/symposium.jpg",
+    "picture": "images/symposium.jpg",
     "priority": "Low"
   },
   {
@@ -73,7 +73,7 @@
     "time": "12:00",
     "location": "Kyiv",
     "category": "Music",
-    "picture": "./../images/concert.jpg",
+    "picture": "images/concert.jpg",
     "priority": "High"
   },
   {
@@ -84,7 +84,7 @@
     "time": "12:00",
     "location": "Kyiv",
     "category": "Sport",
-    "picture": "./../images/sports-event.jpg",
+    "picture": "images/sports-event.jpg",
     "priority": "Low"
   }
 ]
