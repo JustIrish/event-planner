@@ -11,7 +11,7 @@ export const GlobalStyle = createGlobalStyle`
     }
     
     code {
-        font-family: source-code-pro, Menlo, Monaco, Consolas, 'Montserrat', sans-serif, 'Courier New',
+        font-family: source-code-pro, Menlo, Monaco, Consolas, 'Poppins', sans-serif, 'Courier New',
         monospace;
     }
 

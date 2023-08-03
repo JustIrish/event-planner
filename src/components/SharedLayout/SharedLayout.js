@@ -2,7 +2,7 @@ import { Outlet } from 'react-router-dom';
 import { Suspense } from 'react';
 import { Toaster } from 'react-hot-toast';
 
-import { GlobalStyle } from 'style/GlobalStyle';
+import { GlobalStyle } from 'styles/GlobalStyle';
 import { Layout, Header, HeaderTitle } from './SharedLayout.styled';
 import Spinner from 'components/Spinner/Spinner';
 

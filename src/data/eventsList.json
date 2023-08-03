@@ -7,18 +7,18 @@
     "time": "12:00",
     "location": "Kyiv",
     "category": "Art",
-    "picture": "",
+    "picture": "./../images/art.jpg",
     "priority": "High"
   },
   {
     "id": "id-2",
-    "title": "Engage in a thought-provoking journey of knowledge and collaboration at our Innovation Summit. ",
-    "description": "443-89-12",
+    "title": "Innovation Summit",
+    "description": "Engage in a thought-provoking journey of knowledge and collaboration at our Innovation Summit. ",
     "date": "12.07",
     "time": "12:00",
     "location": "Kyiv",
     "category": "Conference",
-    "picture": "",
+    "picture": "./../images/summit.jpg",
     "priority": "Medium"
   },
   {
@@ -29,7 +29,7 @@
     "time": "12:00",
     "location": "Kyiv",
     "category": "Workshop",
-    "picture": "",
+    "picture": "./../images/training.jpg",
     "priority": "High"
   },
   {
@@ -40,7 +40,7 @@
     "time": "12:00",
     "location": "Kyiv",
     "category": "Party",
-    "picture": "",
+    "picture": "./../images/banquet.jpg",
     "priority": "High"
   },
   {
@@ -51,7 +51,7 @@
     "time": "12:00",
     "location": "Kyiv",
     "category": "Business",
-    "picture": "",
+    "picture": "./../images/conference.jpg",
     "priority": "Medium"
   },
   {
@@ -62,7 +62,7 @@
     "time": "12:00",
     "location": "Kyiv",
     "category": "Workshop",
-    "picture": "",
+    "picture": "./../images/symposium.jpg",
     "priority": "Low"
   },
   {
@@ -73,7 +73,7 @@
     "time": "12:00",
     "location": "Kyiv",
     "category": "Music",
-    "picture": "",
+    "picture": "./../images/concert.jpg",
     "priority": "High"
   },
   {
@@ -84,7 +84,7 @@
     "time": "12:00",
     "location": "Kyiv",
     "category": "Sport",
-    "picture": "",
+    "picture": "./../images/sports-event.jpg",
     "priority": "Low"
   }
 ]
