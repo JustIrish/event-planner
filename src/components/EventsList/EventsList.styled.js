@@ -2,8 +2,8 @@ import styled from 'styled-components';
 import { mediaQueries } from 'styles/mediaQueries';
 
 export const CardList = styled.ul`
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(262px, 1fr));
   gap: 24px;
   padding: 40px 0;
 
@@ -23,13 +23,6 @@ export const Card = styled.li`
   position: relative;
   box-shadow: 2px 4px 9px 0px rgba(166, 141, 174, 0.28);
   border-radius: 12px;
-  transform: translateY(0);
-
-  ${mediaQueries('tablet')`
-     flex-basis: calc((100% - 24px) / 2);`};
-
-  ${mediaQueries('desktop')`
-  flex-basis: calc((100% - 72px) / 4);`};
 `;
 
 export const Wrapper = styled.div`
@@ -102,9 +95,24 @@ export const Mark = styled.p`
   padding: 6px 12px;
   border-radius: 8px;
   background-color: #fff;
-  color: #7b61ff;
   font-size: 14px;
   font-weight: 500;
+
+  color: ${props => {
+    switch (props.type) {
+      case 'High':
+        return '#FF2B77';
+
+      case 'Medium':
+        return '#E2A300';
+
+      case 'Low':
+        return '#6BD475';
+
+      default:
+        return '#7b61ff';
+    }
+  }};
 `;
 
 export const DescWrap = styled.div`

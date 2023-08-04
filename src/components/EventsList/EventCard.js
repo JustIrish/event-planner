@@ -29,7 +29,7 @@ const EventCard = ({
     <Card>
       <PositionWrap>
         <Mark>{category}</Mark>
-        <Mark>{priority}</Mark>
+        <Mark type={priority}>{priority}</Mark>
       </PositionWrap>
       <Wrapper>
         <Image
