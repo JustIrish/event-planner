@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
-export const StyledBtn = styled.button`
+export const StyledBtn = styled(Link)`
   border-radius: 8px;
   border: transparent;
   color: #fff;

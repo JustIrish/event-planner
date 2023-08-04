@@ -1,7 +1,16 @@
+import { useLocation } from 'react-router-dom';
+
+import BackLink from 'components/BackLink/BackLink';
+import MainTitle from 'components/MainTitle/MainTitle';
+
 const CreateEvent = () => {
+  const location = useLocation();
+  const backLinkHref = location.state?.from ?? '/';
+
   return (
     <>
-      <h1>Create new event</h1>
+      <BackLink to={backLinkHref}>Back</BackLink>
+      <MainTitle>Create new event</MainTitle>
     </>
   );
 };
