@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
+import { mediaQueries } from 'styles/mediaQueries';
+
 export const BackLinkStyled = styled(Link)`
   display: inline-flex;
   align-items: center;
@@ -12,7 +14,11 @@ export const BackLinkStyled = styled(Link)`
   font-weight: 500;
   transition: color 300ms cubic-bezier(0.165, 0.84, 0.44, 1);
 
-  :hover {
+  ${mediaQueries('desktop')`
+   margin-bottom: 18px;`};
+
+  &:hover,
+  &:focus {
     color: #6243ff;
   }
 `;

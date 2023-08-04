@@ -34,9 +34,10 @@ export const StyledInput = styled.input`
   ${mediaQueries('desktop')`
     width: 410px;`};
 
-  &:focus,
-  &:hover {
-    outline: 2px solid #7b61ff;
+  &:hover,
+  &:focus {
+    color: #7b61ff;
+    outline: transparent;
   }
 `;
 
