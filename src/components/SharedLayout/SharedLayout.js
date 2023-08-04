@@ -11,12 +11,14 @@ import {
   Container,
 } from './SharedLayout.styled';
 import Spinner from 'components/Spinner/Spinner';
+import Search from 'components/Search/Search';
 
 const SharedLayout = () => {
   return (
     <Layout>
       <Header>
         <HeaderTitle>Event Planner</HeaderTitle>
+        <Search />
       </Header>
       <Suspense fallback={<Spinner />}>
         <Main>
