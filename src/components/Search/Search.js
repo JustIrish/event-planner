@@ -1,14 +1,14 @@
 import { CiSearch } from 'react-icons/ci';
-import { StyledInput } from './Search.styled';
+import { StyledInput, WrapInput, BtnSearch } from './Search.styled';
 
 const Search = () => {
   return (
-    <div>
+    <WrapInput>
       <StyledInput placeholder="Search by keywords" />
-      <button type="button">
+      <BtnSearch type="button">
         <CiSearch size="24" color="#7B61FF" />
-      </button>
-    </div>
+      </BtnSearch>
+    </WrapInput>
   );
 };
 

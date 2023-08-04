@@ -6,15 +6,22 @@ export const Layout = styled.div`
 `;
 
 export const Header = styled.header`
-  padding: 24px;
+  padding: 24px 0;
   background-color: #fefcff;
   border-bottom: 1px solid #7b61ff;
 
   ${mediaQueries('tablet')`
-    padding: 26px 40px 18px;`};
+    padding: 26px 0 18px;`};
 
   ${mediaQueries('desktop')`
-    padding: 22px 80px;`};
+    padding: 22px 0;`};
+`;
+
+export const FlexWrap = styled.div`
+  ${mediaQueries('tablet')`
+    display: flex;
+     align-items: center;
+    justify-content: space-between;`};
 `;
 
 export const HeaderTitle = styled.div`

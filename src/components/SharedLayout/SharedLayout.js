@@ -6,6 +6,7 @@ import { GlobalStyle } from 'styles/GlobalStyle';
 import {
   Layout,
   Header,
+  FlexWrap,
   HeaderTitle,
   Main,
   Container,
@@ -17,8 +18,12 @@ const SharedLayout = () => {
   return (
     <Layout>
       <Header>
-        <HeaderTitle>Event Planner</HeaderTitle>
-        <Search />
+        <Container>
+          <FlexWrap>
+            <HeaderTitle>Event Planner</HeaderTitle>
+            <Search />
+          </FlexWrap>
+        </Container>
       </Header>
       <Suspense fallback={<Spinner />}>
         <Main>
