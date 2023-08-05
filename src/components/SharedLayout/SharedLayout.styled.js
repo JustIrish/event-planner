@@ -18,10 +18,12 @@ export const Header = styled.header`
 `;
 
 export const FlexWrap = styled.div`
+  position: relative;
   ${mediaQueries('tablet')`
     display: flex;
      align-items: center;
-    justify-content: space-between;`};
+    justify-content: space-between;
+    padding-right: 93px;`};
 `;
 
 export const HeaderTitle = styled.div`
@@ -29,6 +31,44 @@ export const HeaderTitle = styled.div`
   font-family: 'Alata';
   font-size: 24px;
   line-height: normal;
+`;
+export const SelectStyled = styled.select`
+  width: 69px;
+  height: 48px;
+
+  padding: 12px 33px 12px 12px;
+  color: #3f3f3f;
+  background-color: #fff;
+
+  font-size: 16px;
+  font-weight: 500;
+
+  border-radius: 8px;
+  border-color: transparent;
+  box-shadow: 2px 4px 9px 0px rgba(166, 141, 174, 0.28);
+
+  appearance: none;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    color: #7b61ff;
+    outline: 1px solid #7b61ff;
+  }
+`;
+
+export const SelectWrap = styled.div`
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  svg {
+    position: absolute;
+    right: 4px;
+    top: 12px;
+
+    pointer-events: none;
+  }
 `;
 
 export const Main = styled.main`

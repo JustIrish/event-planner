@@ -6,11 +6,14 @@ import { GlobalStyle } from 'styles/GlobalStyle';
 import {
   Layout,
   Header,
+  SelectStyled,
+  SelectWrap,
   FlexWrap,
   HeaderTitle,
   Main,
   Container,
 } from './SharedLayout.styled';
+import { RiArrowDownSLine } from 'react-icons/ri';
 import Spinner from 'components/Spinner/Spinner';
 import Search from 'components/Search/Search';
 
@@ -21,6 +24,13 @@ const SharedLayout = () => {
         <Container>
           <FlexWrap>
             <HeaderTitle>Event Planner</HeaderTitle>
+            <SelectWrap>
+              <RiArrowDownSLine size="24" color="#3f3f3f" />
+              <SelectStyled>
+                <option value="High">UK</option>
+                <option value="Medium">EN</option>
+              </SelectStyled>
+            </SelectWrap>
             <Search />
           </FlexWrap>
         </Container>

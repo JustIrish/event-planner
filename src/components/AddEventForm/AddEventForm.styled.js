@@ -10,7 +10,7 @@ export const StyledForm = styled.form`
   padding: 40px 16px;
   margin-top: 24px;
   border-radius: 8px;
-  background: #fff;
+  background-color: #fff;
   box-shadow: 2px 4px 9px 0px rgba(166, 141, 174, 0.28);
 
   button {
@@ -119,14 +119,6 @@ export const SelectStyled = styled.select`
   &:focus {
     color: #7b61ff;
     outline: 1px solid #7b61ff;
-  }
-
-  option {
-    padding: 0px 16px;
-    border-radius: 8px;
-    background: #fff;
-
-    box-shadow: 2px 4px 9px 0px rgba(166, 141, 174, 0.28);
   }
 `;
 
