@@ -105,6 +105,15 @@ export const SelectStyled = styled.select`
   }
 `;
 
+export const ErrorStyled = styled.div`
+  margin-top: 4px;
+  padding: 0 15px;
+  color: #ff2b77;
+  text-align: right;
+  font-size: 12px;
+  line-height: 1.3;
+`;
+
 export const SelectWrap = styled.div`
   position: relative;
   margin-top: 8px;

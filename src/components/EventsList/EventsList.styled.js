@@ -28,7 +28,7 @@ export const Card = styled.li`
 export const Wrapper = styled.div`
   position: relative;
 
-  button {
+  a {
     display: none;
   }
 
@@ -38,7 +38,7 @@ export const Wrapper = styled.div`
     div {
       top: 230px;
     }
-    button {
+    a {
       position: absolute;
       z-index: 5;
       right: 16px;
