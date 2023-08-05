@@ -6,7 +6,6 @@ import { CardList } from './EventsList.styled';
 
 const EventsList = () => {
   const events = useSelector(selectEvents);
-  console.log(events);
 
   return (
     <CardList>

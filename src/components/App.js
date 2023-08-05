@@ -12,7 +12,7 @@ function App() {
       <Route path="/" element={<SharedLayout />}>
         <Route index element={<Home />} />
         <Route path="/create" element={<CreateEvent />} />
-        <Route path="/details" element={<EventDetails />} />
+        <Route path="/details/:id" element={<EventDetails />} />
         <Route path="*" element={<Home />} />
       </Route>
     </Routes>

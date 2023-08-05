@@ -90,6 +90,7 @@ export const TextareaStyled = styled.textarea`
   border: 1px solid #aca7c3;
   transition: color 300ms cubic-bezier(0.165, 0.84, 0.44, 1);
   resize: none;
+  cursor: pointer;
 
   &:focus,
   &:hover {
@@ -149,8 +150,6 @@ export const SelectWrap = styled.div`
 
     pointer-events: none;
 
-    &:focus {
-      transform: rotate(180deg);
-    }
+    transition: 300ms cubic-bezier(0.165, 0.84, 0.44, 1);
   }
 `;

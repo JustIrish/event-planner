@@ -1,4 +1,10 @@
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-hot-toast';
+
 import { useForm } from 'react-hook-form';
+
+import { addEvent } from 'redux/events/eventsSlice';
 
 import {
   StyledForm,
@@ -16,7 +22,12 @@ import { validationRules } from 'common/validation';
 import { categories } from 'data/categories';
 import Button from 'components/Buttons/Button';
 
+const defaultPic = 'images/default-image.png';
+
 const AddEventForm = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
@@ -25,9 +36,29 @@ const AddEventForm = () => {
   } = useForm({ mode: 'onChange' });
 
   const handleFormSubmit = data => {
-    console.log(data);
-    //  onSubmit(formData, reset);
+    const { title, description, date, time, location, category, priority } =
+      data;
+
+    const formatDate = date.slice(5).split('-').reverse().join('.');
+
+    dispatch(
+      addEvent({
+        title,
+        description,
+        date: formatDate,
+        time,
+        location,
+        category,
+        picture: defaultPic,
+        priority,
+      })
+    );
+    reset();
+    toast.success('New event has been added!');
+    navigate('/', { replace: true });
   };
+
+  const onCloseClick = () => {};
 
   return (
     <>
@@ -35,7 +66,11 @@ const AddEventForm = () => {
         <LabelStyled>
           Title
           <SelectWrap>
-            <VscClose size="24" color={errors.title ? '#FF2B77' : '#7b61ff'} />
+            <VscClose
+              onClick={onCloseClick}
+              size="24"
+              color={errors.title ? '#FF2B77' : '#7b61ff'}
+            />
             <InputStyled
               {...register('title', validationRules.title)}
               placeholder="Input"
@@ -62,6 +97,10 @@ const AddEventForm = () => {
               type="text"
               rows="5"
               name="description"
+              style={{
+                outlineColor: errors.description && 'transparent',
+                borderColor: errors.description && '#FF2B77',
+              }}
             />
           </SelectWrap>
           {errors.description && (
