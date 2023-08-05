@@ -2,14 +2,50 @@ import styled from 'styled-components';
 import { mediaQueries } from 'styles/mediaQueries';
 
 export const StyledForm = styled.form`
-  display: flex;
-  flex-direction: column;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 20px;
+
   padding: 40px 16px;
   margin-top: 24px;
   border-radius: 8px;
   background: #fff;
   box-shadow: 2px 4px 9px 0px rgba(166, 141, 174, 0.28);
+
+  button {
+    padding: 16px 12px;
+    margin-top: 20px;
+
+    ${mediaQueries('tablet')`
+    position: absolute;
+    right: 24px;
+    bottom: 40px;
+    margin-top: 0;
+    width: 193px;`};
+
+    ${mediaQueries('desktop')`
+    
+    right: 40px;
+    bottom: 54px;
+    margin-top: 0;`};
+  }
+
+  ${mediaQueries('tablet')`
+  padding: 40px 24px;
+  height: 656px;
+  grid-template-columns: repeat(2, 308px);
+  grid-auto-flow: column;
+   grid-template-rows: repeat(5, 80px);
+  align-items: flex-start;
+  `};
+
+  ${mediaQueries('desktop')`
+  height: 490px;
+  padding: 40px;
+  grid-template-columns: repeat(3, 332px);
+   grid-template-rows: repeat(3, 80px);
+  `};
 `;
 
 export const LabelStyled = styled.label`
@@ -17,9 +53,6 @@ export const LabelStyled = styled.label`
 
   font-size: 16px;
   font-weight: 400;
-
-  /* ${mediaQueries('desktop')`
-   margin-bottom: 18px;`}; */
 `;
 
 export const InputStyled = styled.input`
@@ -36,8 +69,6 @@ export const InputStyled = styled.input`
 
   appearance: none;
   cursor: pointer;
-  /* ${mediaQueries('desktop')`
-   margin-bottom: 18px;`}; */
 
   &:focus,
   &:hover {
@@ -48,7 +79,7 @@ export const InputStyled = styled.input`
 
 export const TextareaStyled = styled.textarea`
   width: 100%;
-  margin-top: 8px;
+  height: 153px;
   padding: 16px 12px;
   color: #3f3f3f;
 
@@ -59,9 +90,6 @@ export const TextareaStyled = styled.textarea`
   border: 1px solid #aca7c3;
   transition: color 300ms cubic-bezier(0.165, 0.84, 0.44, 1);
   resize: none;
-
-  /* ${mediaQueries('desktop')`
-   margin-bottom: 18px;`}; */
 
   &:focus,
   &:hover {
@@ -85,10 +113,6 @@ export const SelectStyled = styled.select`
 
   appearance: none;
   cursor: pointer;
-  /* background-position: left 0.7em top 50%, 0 0; */
-
-  /* ${mediaQueries('desktop')`
-   margin-bottom: 18px;`}; */
 
   &:hover,
   &:focus {
@@ -121,8 +145,8 @@ export const SelectWrap = styled.div`
   svg {
     position: absolute;
     right: 15px;
-    top: 50%;
-    transform: translateY(-50%);
+    top: 15px;
+
     pointer-events: none;
 
     &:focus {

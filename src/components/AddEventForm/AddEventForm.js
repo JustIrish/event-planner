@@ -14,6 +14,7 @@ import { VscClose } from 'react-icons/vsc';
 
 import { validationRules } from 'common/validation';
 import { categories } from 'data/categories';
+import Button from 'components/Buttons/Button';
 
 const AddEventForm = () => {
   const {
@@ -34,65 +35,79 @@ const AddEventForm = () => {
         <LabelStyled>
           Title
           <SelectWrap>
-            <VscClose size="24" color="#7b61ff" />
+            <VscClose size="24" color={errors.title ? '#FF2B77' : '#7b61ff'} />
             <InputStyled
               {...register('title', validationRules.title)}
               placeholder="Input"
               type="text"
               name="title"
               style={{
-                outlineColor: errors.title && '#FF2B77',
-                borderColor: errors.title && 'transparent',
+                outlineColor: errors.title && 'transparent',
+                borderColor: errors.title && '#FF2B77',
               }}
             />
           </SelectWrap>
           {errors.title && <ErrorStyled>{errors.title.message}</ErrorStyled>}
         </LabelStyled>
-        <LabelStyled>
+        <LabelStyled style={{ gridRowStart: 2, gridRowEnd: 4 }}>
           Description
-          <TextareaStyled
-            {...register('description', validationRules.description)}
-            placeholder="Input"
-            type="text"
-            rows="5"
-            name="description"
-          />
+          <SelectWrap>
+            <VscClose
+              size="24"
+              color={errors.description ? '#FF2B77' : '#7b61ff'}
+            />
+            <TextareaStyled
+              {...register('description', validationRules.description)}
+              placeholder="Input"
+              type="text"
+              rows="5"
+              name="description"
+            />
+          </SelectWrap>
           {errors.description && (
             <ErrorStyled>{errors.description.message}</ErrorStyled>
           )}
         </LabelStyled>
         <LabelStyled>
           Select date
-          <InputStyled
-            {...register('date', { required: 'required field' })}
-            placeholder="Input"
-            type="date"
-            name="date"
-          />
+          <SelectWrap>
+            <InputStyled
+              {...register('date', { required: 'required field' })}
+              placeholder="Input"
+              type="date"
+              name="date"
+            />
+          </SelectWrap>
           {errors.date && <ErrorStyled>{errors.date.message}</ErrorStyled>}
         </LabelStyled>
         <LabelStyled>
           Select time
-          <InputStyled
-            {...register('time', { required: 'required field' })}
-            placeholder="Input"
-            type="time"
-            name="time"
-          />
+          <SelectWrap>
+            <InputStyled
+              {...register('time', { required: 'required field' })}
+              placeholder="Input"
+              type="time"
+              name="time"
+            />
+          </SelectWrap>
           {errors.time && <ErrorStyled>{errors.time.message}</ErrorStyled>}
         </LabelStyled>
+
         <LabelStyled>
           Location
           <SelectWrap>
-            <VscClose size="24" color="#7b61ff" />
+            <VscClose
+              size="24"
+              color={errors.location ? '#FF2B77' : '#7b61ff'}
+            />
             <InputStyled
               {...register('location', validationRules.location)}
               placeholder="Input"
               type="text"
               name="location"
               style={{
-                outlineColor: errors.location && '#FF2B77',
-                borderColor: errors.location && 'transparent',
+                outlineColor: errors.location && 'transparent',
+                borderColor: errors.location && '#FF2B77',
               }}
             />
           </SelectWrap>
@@ -117,9 +132,17 @@ const AddEventForm = () => {
             </SelectStyled>
           </SelectWrap>
         </LabelStyled>
-        <LabelStyled>
+        <LabelStyled style={{ color: '#ACA7C3' }}>
           Add picture
-          <InputStyled placeholder="Input" disabled name="ticture" />
+          <SelectWrap>
+            <VscClose size="24" color="#ACA7C3" />
+            <InputStyled
+              placeholder="Input"
+              disabled
+              name="picture"
+              style={{ borderColor: '#ACA7C3', outlineColor: 'transparent' }}
+            />
+          </SelectWrap>
         </LabelStyled>
         <LabelStyled>
           Priority
@@ -131,14 +154,13 @@ const AddEventForm = () => {
               name="priority"
               selected
             >
-              <option disabled>Select Priority</option>
               <option value="High">High</option>
               <option value="Medium">Medium</option>
               <option value="Low">Low</option>
             </SelectStyled>
           </SelectWrap>
         </LabelStyled>
-        <button type="submit">Submit</button>
+        <Button option="button" type="submit" title="Add event" />
       </StyledForm>
     </>
   );

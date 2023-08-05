@@ -1,8 +1,8 @@
 import { StyledBtn } from './Button.styled';
 
-const Button = ({ type, title, to, location }) => {
+const Button = ({ type, title, to, location, option }) => {
   return (
-    <StyledBtn type={type} to={to} location={location}>
+    <StyledBtn as={option} type={type} to={to} location={location}>
       {title}
     </StyledBtn>
   );
