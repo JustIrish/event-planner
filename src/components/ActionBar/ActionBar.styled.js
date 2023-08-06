@@ -10,6 +10,9 @@ export const ButtonsContainer = styled.div`
     width: 56px;
     height: 56px;
     padding: 16px;
+
+    ${mediaQueries('tablet')`
+     min-width: 193px;`};
   }
 `;
 

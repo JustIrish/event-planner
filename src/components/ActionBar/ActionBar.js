@@ -19,12 +19,45 @@ const ActionBar = () => {
         {width > 767 && 'Sort by'}
         <BsSliders size="22" color="#3F3F3F" />
       </BtnWrap>
-      <Button
+
+      {width > 767 ? (
+        <Button
+          type="button"
+          title={
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '16px',
+              }}
+            >
+              <BsPlusLg size="24" color="#fff" />
+              Add new event
+            </div>
+          }
+          to={`/create`}
+          location={location}
+        />
+      ) : (
+        <Button
+          type="button"
+          title={<BsPlusLg size="24" color="#fff" />}
+          to={`/create`}
+          location={location}
+        />
+      )}
+      {/* <Button
         type="button"
-        title={<BsPlusLg size="24" color="#fff" />}
+        title={
+          <div>
+            <BsPlusLg size="24" color="#fff" />
+            Add new event
+          </div>
+        }
         to={`/create`}
         location={location}
-      />
+      /> */}
     </ButtonsContainer>
   );
 };
