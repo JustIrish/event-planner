@@ -79,7 +79,7 @@ export const InputStyled = styled.input`
 export const TextareaStyled = styled.textarea`
   width: 100%;
   height: 153px;
-  padding: 16px 12px;
+  padding: 16px 40px 16px 12px;
   color: #3f3f3f;
 
   font-size: 16px;

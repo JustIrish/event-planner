@@ -63,7 +63,7 @@ const EventDetailsCard = ({ id }) => {
           </TextContainer>
           <ButtonsContainer>
             <Button
-              to={`/edit`}
+              to={`/edit/${id}`}
               location={locationProp}
               type="button"
               title="Edit"

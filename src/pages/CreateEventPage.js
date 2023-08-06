@@ -12,7 +12,7 @@ const CreateEvent = () => {
     <>
       <BackLink to={backLinkHref}>Back</BackLink>
       <MainTitle>Create new event</MainTitle>
-      <AddEventForm />
+      <AddEventForm btnTitle="Add event" />
     </>
   );
 };

@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
@@ -20,11 +21,11 @@ import { VscClose } from 'react-icons/vsc';
 
 import { validationRules } from 'common/validation';
 import { categories } from 'data/categories';
-import Button from 'components/Buttons/Button';
+import Button from 'components/Button/Button';
 
 const defaultPic = 'images/default-image.png';
 
-const AddEventForm = () => {
+const AddEventForm = ({ event, btnTitle }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -32,29 +33,43 @@ const AddEventForm = () => {
     register,
     handleSubmit,
     reset,
+    setValue,
     formState: { errors },
   } = useForm({ mode: 'onChange' });
+
+  useEffect(() => {
+    if (event) {
+      Object.keys(event).forEach(fieldName => {
+        setValue(fieldName, event[fieldName]);
+      });
+    }
+  }, [event, setValue]);
 
   const handleFormSubmit = data => {
     const { title, description, date, time, location, category, priority } =
       data;
 
-    const formatDate = date.slice(5).split('-').reverse().join('.');
+    if (btnTitle === 'Add event') {
+      const formatDate = date.slice(5).split('-').reverse().join('.');
 
-    dispatch(
-      addEvent({
-        title,
-        description,
-        date: formatDate,
-        time,
-        location,
-        category,
-        picture: defaultPic,
-        priority,
-      })
-    );
-    reset();
-    toast.success('New event has been added!');
+      dispatch(
+        addEvent({
+          title,
+          description,
+          date: formatDate,
+          time,
+          location,
+          category,
+          picture: defaultPic,
+          priority,
+        })
+      );
+      reset();
+      toast.success('New event has been added!');
+    } else {
+      toast.success('EDIT');
+    }
+
     navigate('/', { replace: true });
   };
 
@@ -199,7 +214,7 @@ const AddEventForm = () => {
             </SelectStyled>
           </SelectWrap>
         </LabelStyled>
-        <Button option="button" type="submit" title="Add event" />
+        <Button option="button" type="submit" title={btnTitle} />
       </StyledForm>
     </>
   );
