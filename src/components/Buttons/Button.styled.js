@@ -2,6 +2,9 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const StyledBtn = styled(Link)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 8px;
   border: transparent;
   color: #fff;

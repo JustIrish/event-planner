@@ -1,3 +1,5 @@
+import { useLocation } from 'react-router-dom';
+
 import Button from 'components/Buttons/Button';
 import {
   Card,
@@ -15,6 +17,7 @@ import {
 
 const EventCard = ({
   event: {
+    id,
     picture,
     title,
     date,
@@ -25,6 +28,8 @@ const EventCard = ({
     priority,
   },
 }) => {
+  const locationProp = useLocation();
+
   return (
     <Card>
       <PositionWrap>
@@ -50,7 +55,12 @@ const EventCard = ({
             <DescText>{description}</DescText>
           </DescWrap>
         </Action>
-        <Button type="button" title="More info" />
+        <Button
+          to={`/details/${id}`}
+          location={locationProp}
+          type="button"
+          title="More info"
+        />
       </Wrapper>
     </Card>
   );

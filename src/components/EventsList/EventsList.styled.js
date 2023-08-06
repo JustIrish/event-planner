@@ -21,6 +21,7 @@ export const Card = styled.li`
   flex-direction: column;
   min-height: 480px;
   position: relative;
+  background-color: #fff;
   box-shadow: 2px 4px 9px 0px rgba(166, 141, 174, 0.28);
   border-radius: 12px;
 `;
