@@ -6,7 +6,7 @@ const Button = ({ type, title, to, location, option, onClick }) => {
       as={option}
       type={type}
       to={to}
-      location={location}
+      state={{ from: location }}
       onClick={onClick}
     >
       {title}

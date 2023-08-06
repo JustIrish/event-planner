@@ -1,15 +1,20 @@
 import { useSelector } from 'react-redux';
 import EventCard from 'components/EventsList/EventCard';
 
-import { selectEvents } from 'redux/events/selectors';
+import { selectEvents, selectFilter } from 'redux/events/selectors';
 import { CardList } from './EventsList.styled';
 
 const EventsList = () => {
   const events = useSelector(selectEvents);
+  const filter = useSelector(selectFilter);
+
+  const visibleEvents = events.filter(event => event.category.includes(filter));
+
+  console.log(visibleEvents);
 
   return (
     <CardList>
-      {events.map(event => (
+      {visibleEvents.map(event => (
         <EventCard key={event.id} event={event} />
       ))}
     </CardList>

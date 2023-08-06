@@ -17,10 +17,12 @@ export const ButtonsContainer = styled.div`
 `;
 
 export const BtnWrap = styled.div`
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
 
+  min-width: 56px;
   height: 56px;
   padding: 16px;
   border-radius: 8px;
@@ -30,8 +32,24 @@ export const BtnWrap = styled.div`
   font-weight: 500;
   color: #3f3f3f;
 
+  ${mediaQueries('tablet')`
+     padding-right: 50px;`};
+
   svg {
-    ${mediaQueries('tablet')`
-     margin-left: 16px;`};
+    position: absolute;
+    z-index: 10;
+    right: 16px;
+    top: 16px;
+  }
+`;
+
+export const SelectStyled = styled.select`
+  border: transparent;
+  appearance: none;
+  cursor: pointer;
+
+  &:focus {
+    color: #7b61ff;
+    outline: transparent;
   }
 `;
