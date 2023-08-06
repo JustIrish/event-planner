@@ -42,13 +42,22 @@ const eventsSlice = createSlice({
         };
       },
     },
-
+    editEvent(state, action) {
+      const index = state.events.findIndex(
+        ({ id }) => id === action.payload.id
+      );
+      if (index !== -1) {
+        state.events.splice(index, 1, action.payload);
+      }
+    },
     deleteEvent(state, action) {
       const index = state.events.findIndex(({ id }) => id === action.payload);
-      state.events.splice(index, 1);
+      if (index !== -1) {
+        state.events.splice(index, 1);
+      }
     },
   },
 });
 
-export const { addEvent, deleteEvent } = eventsSlice.actions;
+export const { addEvent, editEvent, deleteEvent } = eventsSlice.actions;
 export const eventsReducer = eventsSlice.reducer;

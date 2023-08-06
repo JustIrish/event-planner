@@ -30,6 +30,8 @@ const EventCard = ({
 }) => {
   const locationProp = useLocation();
 
+  const formatDate = date.slice(5).split('-').reverse().join('.');
+
   return (
     <Card>
       <PositionWrap>
@@ -46,7 +48,7 @@ const EventCard = ({
         <Action>
           <FlexWrap>
             <TextInfo>
-              {date} at {time}
+              {formatDate} at {time}
             </TextInfo>
             <TextInfo>{location}</TextInfo>
           </FlexWrap>

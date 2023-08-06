@@ -1,11 +1,11 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
 
 import { useForm } from 'react-hook-form';
 
-import { addEvent } from 'redux/events/eventsSlice';
+import { addEvent, editEvent } from 'redux/events/eventsSlice';
 
 import {
   StyledForm,
@@ -26,6 +26,7 @@ import Button from 'components/Button/Button';
 const defaultPic = 'images/default-image.png';
 
 const AddEventForm = ({ event, btnTitle }) => {
+  const [isSelectOpen, setIsSelectOpen] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -50,13 +51,11 @@ const AddEventForm = ({ event, btnTitle }) => {
       data;
 
     if (btnTitle === 'Add event') {
-      const formatDate = date.slice(5).split('-').reverse().join('.');
-
       dispatch(
         addEvent({
           title,
           description,
-          date: formatDate,
+          date,
           time,
           location,
           category,
@@ -64,16 +63,39 @@ const AddEventForm = ({ event, btnTitle }) => {
           priority,
         })
       );
-      reset();
+
       toast.success('New event has been added!');
     } else {
-      toast.success('EDIT');
+      dispatch(
+        editEvent({
+          id: event.id,
+          title,
+          description,
+          date,
+          time,
+          location,
+          category,
+          picture: event.picture,
+          priority,
+        })
+      );
+      toast.success('Changes made successfully');
     }
-
+    reset();
     navigate('/', { replace: true });
   };
 
-  const onCloseClick = () => {};
+  const onCloseClick = fieldName => {
+    setValue(fieldName, '');
+  };
+
+  const handleSelectOpen = () => {
+    setIsSelectOpen(true);
+  };
+
+  const handleSelectClose = () => {
+    setIsSelectOpen(false);
+  };
 
   return (
     <>
@@ -82,7 +104,7 @@ const AddEventForm = ({ event, btnTitle }) => {
           Title
           <SelectWrap>
             <VscClose
-              onClick={onCloseClick}
+              onClick={() => onCloseClick('title')}
               size="24"
               color={errors.title ? '#FF2B77' : '#7b61ff'}
             />
@@ -103,6 +125,7 @@ const AddEventForm = ({ event, btnTitle }) => {
           Description
           <SelectWrap>
             <VscClose
+              onClick={() => onCloseClick('description')}
               size="24"
               color={errors.description ? '#FF2B77' : '#7b61ff'}
             />
@@ -151,6 +174,7 @@ const AddEventForm = ({ event, btnTitle }) => {
           Location
           <SelectWrap>
             <VscClose
+              onClick={() => onCloseClick('location')}
               size="24"
               color={errors.location ? '#FF2B77' : '#7b61ff'}
             />
@@ -172,11 +196,18 @@ const AddEventForm = ({ event, btnTitle }) => {
         <LabelStyled>
           Category
           <SelectWrap>
-            <RiArrowDownSLine size="24" color="#7b61ff" />
+            <RiArrowDownSLine
+              type="select"
+              isSelectOpen
+              size="24"
+              color="#7b61ff"
+            />
             <SelectStyled
               {...register('category')}
               placeholder="Select"
               name="category"
+              onClick={handleSelectOpen}
+              onBlur={handleSelectClose}
             >
               {categories.map(category => (
                 <option key={category} value={category}>
@@ -201,12 +232,18 @@ const AddEventForm = ({ event, btnTitle }) => {
         <LabelStyled>
           Priority
           <SelectWrap>
-            <RiArrowDownSLine size="24" color="#7b61ff" />
+            <RiArrowDownSLine
+              type="select"
+              isSelectOpen={isSelectOpen}
+              size="24"
+              color="#7b61ff"
+            />
             <SelectStyled
               {...register('priority')}
               placeholder="Select"
               name="priority"
-              selected
+              onClick={handleSelectOpen}
+              onBlur={handleSelectClose}
             >
               <option value="High">High</option>
               <option value="Medium">Medium</option>

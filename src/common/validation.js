@@ -3,7 +3,11 @@ export const validationRules = {
     required: 'Title is required',
     minLength: {
       value: 3,
-      message: 'Name must have at least 3 characters',
+      message: 'The title must have at least 3 characters',
+    },
+    maxLength: {
+      value: 30,
+      message: 'The title must contain no more than 30 characters',
     },
     pattern: {
       value: /^(?=[a-z0-9])[a-z0-9\s]{2,30}[a-z0-9]$/i,
@@ -17,8 +21,11 @@ export const validationRules = {
       value: 10,
       message: 'Name must have at least 10 characters',
     },
+    maxLength: {
+      value: 100,
+    },
     pattern: {
-      value: /^(?=[a-z0-9])[a-z0-9\s]{9,80}[a-z0-9.]$/i,
+      value: /^(?=[a-z0-9\s]).*[a-z0-9\s.*+!,.?-]$/i,
       message: 'Invalid input',
     },
   },
@@ -31,7 +38,7 @@ export const validationRules = {
     },
     maxLength: {
       value: 15,
-      message: 'Location  must have at least 15 characters',
+      message: 'The location must contain no more than 15 characters',
     },
     pattern: {
       value: /^(?=[a-z0-9])[a-z0-9\s]{2,15}[a-z0-9]$/i,

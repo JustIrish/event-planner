@@ -1,5 +1,5 @@
 import { useLocation, useParams } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { selectEvents } from 'redux/events/selectors';
 
 import BackLink from 'components/BackLink/BackLink';

@@ -66,9 +66,6 @@ export const InputStyled = styled.input`
   border: 1px solid #aca7c3;
   transition: color 300ms cubic-bezier(0.165, 0.84, 0.44, 1);
 
-  appearance: none;
-  cursor: pointer;
-
   &:focus,
   &:hover {
     color: #7b61ff;
@@ -89,7 +86,6 @@ export const TextareaStyled = styled.textarea`
   border: 1px solid #aca7c3;
   transition: color 300ms cubic-bezier(0.165, 0.84, 0.44, 1);
   resize: none;
-  cursor: pointer;
 
   &:focus,
   &:hover {
@@ -139,8 +135,12 @@ export const SelectWrap = styled.div`
     right: 15px;
     top: 15px;
 
-    pointer-events: none;
+    cursor: pointer;
+
+    pointer-events: ${prop => (prop.type === 'select' ? 'none' : 'auto')};
 
     transition: 300ms cubic-bezier(0.165, 0.84, 0.44, 1);
+
+    transform: ${prop => (prop.isSelectOpen ? 'rotate(180deg)' : 'none')};
   }
 `;

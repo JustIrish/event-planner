@@ -34,6 +34,8 @@ const EventDetailsCard = ({ id }) => {
     priority,
   } = selectedEnent;
 
+  const formatDate = date.slice(5).split('-').reverse().join('.');
+
   const onDeleteClick = () => {
     dispatch(deleteEvent(id));
     navigate('/', { replace: true });
@@ -58,7 +60,7 @@ const EventDetailsCard = ({ id }) => {
             <StyledText weight="bold">{location}</StyledText>
             <StyledText>
               {' '}
-              {date} at {time} am
+              {formatDate} at {time} am
             </StyledText>
           </TextContainer>
           <ButtonsContainer>
