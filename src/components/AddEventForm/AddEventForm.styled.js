@@ -25,7 +25,6 @@ export const StyledForm = styled.form`
     width: 193px;`};
 
     ${mediaQueries('desktop')`
-    
     right: 40px;
     bottom: 54px;
     margin-top: 0;`};

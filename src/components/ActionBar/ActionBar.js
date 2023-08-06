@@ -1,7 +1,7 @@
 import { useLocation } from 'react-router-dom';
 
 import useWindowDimensions from 'hooks/useWindowDimensions';
-import Button from 'components/Buttons/Button';
+import Button from 'components/Button/Button';
 import { ButtonsContainer, BtnWrap } from './ActionBar.styled';
 import { BsPlusLg, BsSliders } from 'react-icons/bs';
 import { CiFilter } from 'react-icons/ci';

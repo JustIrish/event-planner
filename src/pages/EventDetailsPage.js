@@ -4,18 +4,20 @@ import BackLink from 'components/BackLink/BackLink';
 import MainTitle from 'components/MainTitle/MainTitle';
 import EventDetailsCard from 'components/EventDetailsCard/EventDetailsCard';
 
+import { Wrap } from './pagesStyles/EventDetailsPage.styled';
+
 const EventDetails = () => {
   const location = useLocation();
-  const { eventId } = useParams();
+  const { id } = useParams();
   const backLinkHref = location.state?.from ?? '/';
-
-  console.log(eventId);
 
   return (
     <>
       <BackLink to={backLinkHref}>Back</BackLink>
-      <MainTitle>Galery Opening</MainTitle>
-      <EventDetailsCard id={eventId} />
+      <Wrap>
+        <MainTitle>Galery Opening</MainTitle>
+        <EventDetailsCard id={id} />
+      </Wrap>
     </>
   );
 };

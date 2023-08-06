@@ -42,11 +42,10 @@ const eventsSlice = createSlice({
         };
       },
     },
+
     deleteEvent(state, action) {
-      const index = state.events.findIndex(
-        event => event.id === action.payload
-      );
-      state.splice(index, 1);
+      const index = state.events.findIndex(({ id }) => id === action.payload);
+      state.events.splice(index, 1);
     },
   },
 });

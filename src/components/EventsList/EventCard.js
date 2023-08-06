@@ -1,6 +1,6 @@
 import { useLocation } from 'react-router-dom';
 
-import Button from 'components/Buttons/Button';
+import Button from 'components/Button/Button';
 import {
   Card,
   Image,

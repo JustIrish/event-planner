@@ -1,6 +1,9 @@
-import Button from 'components/Buttons/Button';
-import { useSelector } from 'react-redux';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+
+import Button from 'components/Button/Button';
 import { selectEvents } from 'redux/events/selectors';
+import { deleteEvent } from 'redux/events/eventsSlice';
 
 import {
   StyledCard,
@@ -13,44 +16,64 @@ import {
 } from './EventDetailsCard.styled';
 
 const EventDetailsCard = ({ id }) => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const events = useSelector(selectEvents);
+  const locationProp = useLocation();
 
-  //   console.log(id);
-  //   const selectedEvent = events.find(event => event.id === id);
+  const selectedEnent = events.find(item => item.id === id);
 
-  //   console.log(selectedEvent);
+  const {
+    picture,
+    title,
+    date,
+    time,
+    location,
+    description,
+    category,
+    priority,
+  } = selectedEnent;
 
-  //   const {
-  //     picture,
-  //     title,
-  //     date,
-  //     time,
-  //     location,
-  //     description,
-  //     category,
-  //     priority,
-  //   } = selectedEvent;
+  const onDeleteClick = () => {
+    dispatch(deleteEvent(id));
+    navigate('/', { replace: true });
+  };
 
   return (
     <>
       <StyledCard>
         <Image
-          src={require(`../../images/banquet.jpg`)}
-          alt="jhjhj"
+          src={require(`../../${picture}`)}
+          alt={title}
           width="272"
           loading="lazy"
         />
         <DescWrap>
-          <DescText>description{}</DescText>
+          <DescText>{description}</DescText>
           <TextContainer>
-            <StyledText>Art{}</StyledText>
-            <StyledText>Low{}</StyledText>
-            <StyledText>Sumy{}</StyledText>
-            <StyledText> 10.08 at 15:00 am</StyledText>
+            <StyledText weight="bold">{category}</StyledText>
+            <StyledText type={priority} weight="bold">
+              {priority}
+            </StyledText>
+            <StyledText weight="bold">{location}</StyledText>
+            <StyledText>
+              {' '}
+              {date} at {time} am
+            </StyledText>
           </TextContainer>
           <ButtonsContainer>
-            <Button type="button" title="Edit" />
-            <Button option="button" type="button" title="Delete event" />
+            <Button
+              to={`/edit`}
+              location={locationProp}
+              type="button"
+              title="Edit"
+            />
+            <Button
+              option="button"
+              type="button"
+              title="Delete event"
+              onClick={onDeleteClick}
+            />
           </ButtonsContainer>
         </DescWrap>
       </StyledCard>
