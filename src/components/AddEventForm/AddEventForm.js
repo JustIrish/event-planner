@@ -14,6 +14,7 @@ import {
   TextareaStyled,
   SelectStyled,
   ErrorStyled,
+  InputWrap,
   SelectWrap,
 } from './AddEventForm.styled';
 import { RiArrowDownSLine } from 'react-icons/ri';
@@ -26,7 +27,7 @@ import Button from 'components/Button/Button';
 const defaultPic = 'images/default-image.png';
 
 const AddEventForm = ({ event, btnTitle }) => {
-  const [isSelectOpen, setIsSelectOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -90,11 +91,11 @@ const AddEventForm = ({ event, btnTitle }) => {
   };
 
   const handleSelectOpen = () => {
-    setIsSelectOpen(true);
+    setIsOpen(true);
   };
 
   const handleSelectClose = () => {
-    setIsSelectOpen(false);
+    setIsOpen(false);
   };
 
   return (
@@ -102,7 +103,7 @@ const AddEventForm = ({ event, btnTitle }) => {
       <StyledForm onSubmit={handleSubmit(handleFormSubmit)}>
         <LabelStyled>
           Title
-          <SelectWrap>
+          <InputWrap>
             <VscClose
               onClick={() => onCloseClick('title')}
               size="24"
@@ -118,12 +119,12 @@ const AddEventForm = ({ event, btnTitle }) => {
                 borderColor: errors.title && '#FF2B77',
               }}
             />
-          </SelectWrap>
+          </InputWrap>
           {errors.title && <ErrorStyled>{errors.title.message}</ErrorStyled>}
         </LabelStyled>
         <LabelStyled style={{ gridRowStart: 2, gridRowEnd: 4 }}>
           Description
-          <SelectWrap>
+          <InputWrap>
             <VscClose
               onClick={() => onCloseClick('description')}
               size="24"
@@ -140,7 +141,7 @@ const AddEventForm = ({ event, btnTitle }) => {
                 borderColor: errors.description && '#FF2B77',
               }}
             />
-          </SelectWrap>
+          </InputWrap>
           {errors.description && (
             <ErrorStyled>{errors.description.message}</ErrorStyled>
           )}
@@ -172,7 +173,7 @@ const AddEventForm = ({ event, btnTitle }) => {
 
         <LabelStyled>
           Location
-          <SelectWrap>
+          <InputWrap>
             <VscClose
               onClick={() => onCloseClick('location')}
               size="24"
@@ -188,7 +189,7 @@ const AddEventForm = ({ event, btnTitle }) => {
                 borderColor: errors.location && '#FF2B77',
               }}
             />
-          </SelectWrap>
+          </InputWrap>
           {errors.location && (
             <ErrorStyled>{errors.location.message}</ErrorStyled>
           )}
@@ -196,12 +197,7 @@ const AddEventForm = ({ event, btnTitle }) => {
         <LabelStyled>
           Category
           <SelectWrap>
-            <RiArrowDownSLine
-              type="select"
-              isSelectOpen
-              size="24"
-              color="#7b61ff"
-            />
+            <RiArrowDownSLine isOpen={isOpen} size="24" color="#7b61ff" />
             <SelectStyled
               {...register('category')}
               placeholder="Select"
@@ -219,7 +215,7 @@ const AddEventForm = ({ event, btnTitle }) => {
         </LabelStyled>
         <LabelStyled style={{ color: '#ACA7C3' }}>
           Add picture
-          <SelectWrap>
+          <InputWrap>
             <VscClose size="24" color="#ACA7C3" />
             <InputStyled
               placeholder="Input"
@@ -227,17 +223,12 @@ const AddEventForm = ({ event, btnTitle }) => {
               name="picture"
               style={{ borderColor: '#ACA7C3', outlineColor: 'transparent' }}
             />
-          </SelectWrap>
+          </InputWrap>
         </LabelStyled>
         <LabelStyled>
           Priority
           <SelectWrap>
-            <RiArrowDownSLine
-              type="select"
-              isSelectOpen={isSelectOpen}
-              size="24"
-              color="#7b61ff"
-            />
+            <RiArrowDownSLine isOpen={isOpen} size="24" color="#7b61ff" />
             <SelectStyled
               {...register('priority')}
               placeholder="Select"

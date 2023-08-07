@@ -126,6 +126,19 @@ export const ErrorStyled = styled.div`
   line-height: 1.3;
 `;
 
+export const InputWrap = styled.div`
+  position: relative;
+  margin-top: 8px;
+
+  svg {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+
+    cursor: pointer;
+  }
+`;
+
 export const SelectWrap = styled.div`
   position: relative;
   margin-top: 8px;
@@ -137,10 +150,10 @@ export const SelectWrap = styled.div`
 
     cursor: pointer;
 
-    pointer-events: ${prop => (prop.type === 'select' ? 'none' : 'auto')};
+    pointer-events: none;
 
     transition: 300ms cubic-bezier(0.165, 0.84, 0.44, 1);
 
-    transform: ${prop => (prop.isSelectOpen ? 'rotate(180deg)' : 'none')};
+    transform: ${prop => (prop.isOpen ? 'rotate(180deg)' : 'none')};
   }
 `;
