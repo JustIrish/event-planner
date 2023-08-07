@@ -1,5 +1,6 @@
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import { toast } from 'react-hot-toast';
 
 import Button from 'components/Button/Button';
 import { selectEvents } from 'redux/events/selectors';
@@ -38,6 +39,7 @@ const EventDetailsCard = ({ id }) => {
 
   const onDeleteClick = () => {
     dispatch(deleteEvent(id));
+    toast.success('Event has been successfully deleted!');
     navigate('/', { replace: true });
   };
 

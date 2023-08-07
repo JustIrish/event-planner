@@ -24,7 +24,8 @@ const ActionBar = () => {
       <BtnWrap>
         <CiFilter size="24" color="#3F3F3F" />
         <SelectStyled onChange={handleSelectChange}>
-          <option>Category</option>
+          {width <= 767 ? <option> </option> : <option>Category</option>}
+
           {categories.map(category => (
             <option key={category} value={category}>
               {category}

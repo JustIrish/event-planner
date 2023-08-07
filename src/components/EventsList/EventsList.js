@@ -8,9 +8,13 @@ const EventsList = () => {
   const events = useSelector(selectEvents);
   const filter = useSelector(selectFilter);
 
-  const visibleEvents = events.filter(event => event.category.includes(filter));
+  let visibleEvents;
 
-  console.log(visibleEvents);
+  if (filter === 'Category') {
+    visibleEvents = events;
+  } else {
+    visibleEvents = events.filter(event => event.category.includes(filter));
+  }
 
   return (
     <CardList>
