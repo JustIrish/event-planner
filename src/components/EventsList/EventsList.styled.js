@@ -28,12 +28,12 @@ export const Card = styled.li`
 
 export const Wrapper = styled.div`
   position: relative;
+  width: 100%;
+  height: 100%;
 
   a {
     display: none;
   }
-
-  /* transition: transform 500ms cubic-bezier(0.165, 0.84, 0.44, 1); */
 
   &:hover {
     div {
@@ -43,7 +43,7 @@ export const Wrapper = styled.div`
       position: absolute;
       z-index: 5;
       right: 16px;
-      bottom: -142px;
+      bottom: 16px;
       display: block;
       margin-top: 8px;
       padding: 10px 24px;
@@ -64,6 +64,7 @@ export const Image = styled.img`
 export const Action = styled.div`
   position: absolute;
   top: 281px;
+  width: 100%;
 `;
 
 export const FlexWrap = styled.div`
@@ -84,7 +85,7 @@ export const TextInfo = styled.p`
 
 export const PositionWrap = styled.div`
   position: absolute;
-  z-index: 10;
+  z-index: 7;
   top: 12px;
   left: 12px;
   display: flex;

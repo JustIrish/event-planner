@@ -22,7 +22,7 @@ export const validationRules = {
       message: 'Name must have at least 10 characters',
     },
     maxLength: {
-      value: 100,
+      value: 200,
     },
     pattern: {
       value: /^(?=[a-z0-9\s]).*[a-z0-9\s.*+!,.?-]$/i,
