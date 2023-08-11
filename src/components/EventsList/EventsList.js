@@ -10,7 +10,7 @@ const EventsList = () => {
 
   let visibleEvents;
 
-  if (filter === 'Category') {
+  if (!filter) {
     visibleEvents = events;
   } else {
     visibleEvents = events.filter(event => event.category.includes(filter));

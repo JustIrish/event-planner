@@ -1,38 +1,19 @@
 import { useLocation } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-
-import { setFilter } from 'redux/events/filterSlice';
 
 import useWindowDimensions from 'hooks/useWindowDimensions';
 import Button from 'components/Button/Button';
-import { ButtonsContainer, BtnWrap, SelectStyled } from './ActionBar.styled';
+import Filter from 'components/Filter/Filter';
+import { ButtonsContainer, BtnWrap } from './ActionBar.styled';
 import { BsPlusLg, BsSliders } from 'react-icons/bs';
 import { CiFilter } from 'react-icons/ci';
-import { categories } from 'data/categories';
 
 const ActionBar = () => {
-  const dispatch = useDispatch();
   const location = useLocation();
   const { width } = useWindowDimensions();
 
-  const handleSelectChange = evt => {
-    dispatch(setFilter(evt.currentTarget.value));
-  };
-
   return (
     <ButtonsContainer>
-      <BtnWrap>
-        <CiFilter size="24" color="#3F3F3F" />
-        <SelectStyled onChange={handleSelectChange}>
-          {width <= 767 ? <option> </option> : <option>Category</option>}
-
-          {categories.map(category => (
-            <option key={category} value={category}>
-              {category}
-            </option>
-          ))}
-        </SelectStyled>
-      </BtnWrap>
+      <Filter title="Category" icon={CiFilter} />
       <BtnWrap>
         {width > 767 && 'Sort by'}
         <BsSliders size="22" color="#3F3F3F" />

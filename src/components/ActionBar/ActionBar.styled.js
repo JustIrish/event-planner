@@ -42,14 +42,3 @@ export const BtnWrap = styled.div`
     top: 16px;
   }
 `;
-
-export const SelectStyled = styled.select`
-  border: transparent;
-  appearance: none;
-  cursor: pointer;
-
-  &:focus {
-    color: #7b61ff;
-    outline: transparent;
-  }
-`;
