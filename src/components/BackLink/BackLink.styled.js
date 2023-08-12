@@ -7,7 +7,6 @@ export const BackLinkStyled = styled(Link)`
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  margin-bottom: 25px;
   color: #7b61ff;
   text-decoration: none;
   font-size: 14px;

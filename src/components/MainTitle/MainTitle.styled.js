@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { mediaQueries } from 'styles/mediaQueries';
 
 export const MainTitleStyled = styled.h1`
+  margin-top: 25px;
   font-size: 24px;
   color: #3f3f3f;
 
