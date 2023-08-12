@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 import Select from 'react-select';
-import { mediaQueries } from 'styles/mediaQueries';
 
 export const SelectStyled = styled(Select)`
   display: block;
-  min-width: 148px;
+  min-width: 143px;
+  height: 56px;
   box-shadow: 2px 4px 9px 0px rgba(166, 141, 174, 0.28);
   border-radius: 8px;
 
@@ -14,15 +14,12 @@ export const SelectStyled = styled(Select)`
   .Select__control {
     height: 100%;
     gap: 16px;
-    flex-direction: row-reverse;
+    flex-direction: row;
     padding: 16px;
     border-radius: 8px;
     border: none;
     background-color: #fff;
     box-shadow: none;
-
-    ${mediaQueries('tablet')`
-    flex-direction: row`};
 
     &:hover,
     &:focus,

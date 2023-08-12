@@ -32,13 +32,29 @@ export const BtnWrap = styled.div`
   font-weight: 500;
   color: #3f3f3f;
 
+  .react-select-container {
+    display: none;
+  }
+
   ${mediaQueries('tablet')`
      padding-right: 50px;`};
 
   svg {
     position: absolute;
-    z-index: 10;
+    z-index: 9;
     right: 16px;
     top: 16px;
+  }
+
+  &:focus,
+  &:hover,
+  &:active {
+    .react-select-container {
+      display: block;
+      position: absolute;
+      z-index: 10;
+      left: 0;
+      width: 155px;
+    }
   }
 `;
