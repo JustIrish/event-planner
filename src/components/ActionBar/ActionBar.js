@@ -7,17 +7,32 @@ import { ButtonsContainer, BtnWrap } from './ActionBar.styled';
 import { BsPlusLg, BsSliders } from 'react-icons/bs';
 import { CiFilter } from 'react-icons/ci';
 
+import { categories } from 'data/categories';
+import { SortBy } from 'data/sortBy';
+
 const ActionBar = () => {
   const location = useLocation();
   const { width } = useWindowDimensions();
 
   return (
     <ButtonsContainer>
-      <Filter title="Category" icon={CiFilter} />
-      <BtnWrap>
-        {width > 767 && 'Sort by'}
-        <BsSliders size="22" color="#3F3F3F" />
-      </BtnWrap>
+      {width < 768 ? (
+        <BtnWrap>
+          <CiFilter size="24" color="#3F3F3F" />
+          <Filter title="Category" icon={CiFilter} data={categories} />
+        </BtnWrap>
+      ) : (
+        <Filter title="Category" icon={CiFilter} data={categories} />
+      )}
+
+      {width < 768 ? (
+        <BtnWrap>
+          <BsSliders size="24" color="#3F3F3F" />
+          <Filter title="Sort by" icon={BsSliders} data={SortBy} />
+        </BtnWrap>
+      ) : (
+        <Filter title="Sort by" icon={BsSliders} data={SortBy} />
+      )}
 
       {width > 767 ? (
         <Button
