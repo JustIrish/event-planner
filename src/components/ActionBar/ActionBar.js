@@ -1,4 +1,8 @@
+import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+
+import { setFilter, setSort } from 'redux/events/filterSlice';
 
 import useWindowDimensions from 'hooks/useWindowDimensions';
 import Button from 'components/Button/Button';
@@ -13,25 +17,54 @@ import { SortBy } from 'data/sortBy';
 const ActionBar = () => {
   const location = useLocation();
   const { width } = useWindowDimensions();
+  const dispatch = useDispatch();
+
+  const changeCategory = value => dispatch(setFilter(value));
+  const changeSort = value => dispatch(setSort(value));
+
+  useEffect(() => {
+    dispatch(setFilter(''));
+    dispatch(setSort(''));
+  }, [dispatch]);
 
   return (
     <ButtonsContainer>
       {width < 768 ? (
-        <BtnWrap>
+        <BtnWrap filter="filter">
           <CiFilter size="24" color="#3F3F3F" />
-          <Filter title="Category" icon={CiFilter} data={categories} />
+          <Filter
+            title="Category"
+            icon={CiFilter}
+            data={categories}
+            onChange={changeCategory}
+          />
         </BtnWrap>
       ) : (
-        <Filter title="Category" icon={CiFilter} data={categories} />
+        <Filter
+          title="Category"
+          icon={CiFilter}
+          data={categories}
+          onChange={changeCategory}
+        />
       )}
 
       {width < 768 ? (
         <BtnWrap>
           <BsSliders size="24" color="#3F3F3F" />
-          <Filter title="Sort by" icon={BsSliders} data={SortBy} />
+          <Filter
+            title="Sort by"
+            icon={BsSliders}
+            data={SortBy}
+            onChange={changeSort}
+          />
         </BtnWrap>
       ) : (
-        <Filter title="Sort by" icon={BsSliders} data={SortBy} />
+        <Filter
+          title="Sort by"
+          icon={BsSliders}
+          data={SortBy}
+          onChange={changeSort}
+        />
       )}
 
       {width > 767 ? (

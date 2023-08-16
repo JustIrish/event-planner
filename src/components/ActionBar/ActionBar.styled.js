@@ -53,7 +53,7 @@ export const BtnWrap = styled.div`
       display: block;
       position: absolute;
       z-index: 10;
-      left: 0;
+      ${p => (p.filter === 'filter' ? 'left: 0' : 'right: 0')};
       width: 155px;
     }
   }

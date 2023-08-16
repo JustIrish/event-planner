@@ -1,19 +1,13 @@
-import { useDispatch } from 'react-redux';
-
-import { setFilter } from 'redux/events/filterSlice';
-
 import { SelectStyled } from './Filter.styled';
 
-const Filter = ({ title, icon: IconComponent, data }) => {
-  const dispatch = useDispatch();
-
+const Filter = ({ title, icon: IconComponent, data, onChange }) => {
   const dataOptions = data.map(item => ({
     value: item,
     label: item,
   }));
 
-  const onChange = ({ value }) => {
-    dispatch(setFilter(value));
+  const handleOnChange = ({ value }) => {
+    onChange(value);
   };
 
   return (
@@ -22,7 +16,7 @@ const Filter = ({ title, icon: IconComponent, data }) => {
         IndicatorSeparator: () => null,
         DropdownIndicator: () => <IconComponent size="24" />,
       }}
-      onChange={onChange}
+      onChange={handleOnChange}
       options={dataOptions}
       className="react-select-container"
       classNamePrefix="Select"
