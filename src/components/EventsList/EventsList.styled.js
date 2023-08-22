@@ -32,23 +32,24 @@ export const Wrapper = styled.div`
   height: 100%;
 
   a {
-    display: none;
-  }
+    visibility: hidden;
+    opacity: 0;
 
-  &:hover {
-    div {
-      top: 230px;
-    }
-    a {
-      position: absolute;
-      z-index: 5;
-      right: 16px;
-      bottom: 16px;
-      display: block;
-      margin-top: 8px;
-      padding: 10px 24px;
-      width: 114px;
-      font-size: 14px;
+    position: absolute;
+    z-index: 5;
+    right: 16px;
+    bottom: 16px;
+
+    margin-top: 8px;
+    padding: 10px 24px;
+    width: 114px;
+    font-size: 14px;
+
+    transition: opacity 500ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    ${Card}:hover &, ${Card}:focus & {
+      visibility: visible;
+      opacity: 1;
     }
   }
 `;
@@ -65,6 +66,12 @@ export const Action = styled.div`
   position: absolute;
   top: 281px;
   width: 100%;
+  transform: translateY(0);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+
+  ${Card}:hover &, ${Card}:focus & {
+    transform: translateY(-30%);
+  }
 `;
 
 export const FlexWrap = styled.div`
