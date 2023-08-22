@@ -1,6 +1,10 @@
 import { createGlobalStyle } from 'styled-components';
 import 'modern-normalize';
 
+import { mediaQueries } from 'styles/mediaQueries';
+
+import background from 'images/background.png';
+
 export const GlobalStyle = createGlobalStyle`
  body {
         margin: 0;
@@ -10,6 +14,19 @@ export const GlobalStyle = createGlobalStyle`
        
          line-height: 1.43;
          background-color: #fefcff;
+          background-image: url(${background});
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 30%;
+
+  ${mediaQueries('tablet')`
+    
+    background-position: 50%;`};
+
+  ${mediaQueries('desktop')`
+   
+    background-position: 100%;`};
+         
     }
     
     code {

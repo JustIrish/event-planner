@@ -75,10 +75,12 @@ export const Main = styled.main`
   padding: 40px 0;
 
   ${mediaQueries('tablet')`
-    padding: 40px 0 125px;`};
+    padding: 40px 0 125px;
+   `};
 
   ${mediaQueries('desktop')`
-    padding: 60px 0 77px;`};
+    padding: 60px 0 77px;
+    `};
 `;
 
 export const Container = styled.div`
