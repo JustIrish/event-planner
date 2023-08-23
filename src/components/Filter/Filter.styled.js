@@ -51,6 +51,12 @@ export const SelectStyled = styled(Select)`
 
   .Select__value-container {
     padding: 0;
+
+    &--has-value {
+      .Select__indicators > svg {
+        color: #7b61ff;
+      }
+    }
   }
 
   .Select__single-value {
@@ -62,6 +68,8 @@ export const SelectStyled = styled(Select)`
     margin: 0;
     line-height: 1.4;
     color: #3f3f3f;
+
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
   }
 
   .Select__input-container {
@@ -97,6 +105,8 @@ export const SelectStyled = styled(Select)`
     border-top: 1px solid #aca7c3;
     transition: color 250ms ease-in-out;
 
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+
     &:hover {
       cursor: pointer;
       color: #7b61ff;
@@ -113,7 +123,9 @@ export const SelectStyled = styled(Select)`
       }
     }
   }
-  .Select__indicators {
+
+  .Select__indicators > svg {
     color: #3f3f3f;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
   }
 `;
