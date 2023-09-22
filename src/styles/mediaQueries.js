@@ -1,5 +1,5 @@
 const breakpionts = {
-  desktop: 1280,
+  desktop: 1440,
   tablet: 768,
   mobile: 320,
 };

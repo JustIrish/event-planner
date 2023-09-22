@@ -26,8 +26,7 @@ export const StyledForm = styled.form`
 
     ${mediaQueries('desktop')`
     right: 40px;
-    bottom: 54px;
-    margin-top: 0;`};
+    bottom: 54px;`};
   }
 
   ${mediaQueries('tablet')`
@@ -36,14 +35,16 @@ export const StyledForm = styled.form`
   grid-template-columns: repeat(2, 308px);
   grid-auto-flow: column;
    grid-template-rows: repeat(5, 80px);
+   column-gap: 24px;
   align-items: flex-start;
   `};
 
   ${mediaQueries('desktop')`
   height: 490px;
   padding: 40px;
-  grid-template-columns: repeat(3, 332px);
+  grid-template-columns: repeat(3, 372px);
    grid-template-rows: repeat(3, 80px);
+   column-gap: 42px;
   `};
 `;
 

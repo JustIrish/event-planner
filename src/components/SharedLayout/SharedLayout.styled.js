@@ -96,6 +96,6 @@ export const Container = styled.div`
     padding: 0 40px;`};
 
   ${mediaQueries('desktop')`
-    max-width: 1280px;
+    max-width: 1440px;
     padding: 0 80px;`};
 `;
