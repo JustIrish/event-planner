@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
@@ -12,7 +12,6 @@ import {
   LabelStyled,
   InputStyled,
   TextareaStyled,
-  SelectStyled,
   ErrorStyled,
   InputWrap,
   SelectWrap,
@@ -22,12 +21,13 @@ import { VscClose } from 'react-icons/vsc';
 
 import { validationRules } from 'common/validation';
 import { categories } from 'data/categories';
+import { priority } from 'data/priority';
 import Button from 'components/Button/Button';
+import SelectField from './SelectField';
 
 const defaultPic = 'images/default-image.png';
 
 const AddEventForm = ({ event, btnTitle }) => {
-  const [isOpen, setIsOpen] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -90,12 +90,8 @@ const AddEventForm = ({ event, btnTitle }) => {
     setValue(fieldName, '');
   };
 
-  const handleSelectOpen = () => {
-    setIsOpen(true);
-  };
-
-  const handleSelectClose = () => {
-    setIsOpen(false);
+  const onSeletClick = (fieldName, value) => {
+    setValue(fieldName, value);
   };
 
   return (
@@ -197,7 +193,13 @@ const AddEventForm = ({ event, btnTitle }) => {
         <LabelStyled>
           Category
           <SelectWrap>
-            <RiArrowDownSLine isOpen={isOpen} size="24" color="#7b61ff" />
+            <SelectField
+              fieldName="category"
+              icon={RiArrowDownSLine}
+              data={categories}
+              onSelect={onSeletClick}
+            />
+            {/* <RiArrowDownSLine isOpen={isOpen} size="24" color="#7b61ff" />
             <SelectStyled
               {...register('category')}
               placeholder="Select"
@@ -210,7 +212,7 @@ const AddEventForm = ({ event, btnTitle }) => {
                   {category}
                 </option>
               ))}
-            </SelectStyled>
+            </SelectStyled> */}
           </SelectWrap>
         </LabelStyled>
         <LabelStyled style={{ color: '#ACA7C3' }}>
@@ -228,7 +230,13 @@ const AddEventForm = ({ event, btnTitle }) => {
         <LabelStyled>
           Priority
           <SelectWrap>
-            <RiArrowDownSLine isOpen={isOpen} size="24" color="#7b61ff" />
+            <SelectField
+              fieldName="priority"
+              icon={RiArrowDownSLine}
+              data={priority}
+              onSelect={onSeletClick}
+            />
+            {/* <RiArrowDownSLine isOpen={isOpen} size="24" color="#7b61ff" />
             <SelectStyled
               {...register('priority')}
               placeholder="Select"
@@ -239,7 +247,7 @@ const AddEventForm = ({ event, btnTitle }) => {
               <option value="High">High</option>
               <option value="Medium">Medium</option>
               <option value="Low">Low</option>
-            </SelectStyled>
+            </SelectStyled> */}
           </SelectWrap>
         </LabelStyled>
         <Button option="button" type="submit" title={btnTitle} />
