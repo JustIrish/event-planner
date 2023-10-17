@@ -14,7 +14,8 @@ export const SelectStyled = styled(Select)`
 
     border-radius: 8px;
     border: 1px solid #aca7c3;
-    transition: color 300ms cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: color 300ms cubic-bezier(0.165, 0.84, 0.44, 1),
+      border-color 300ms cubic-bezier(0.165, 0.84, 0.44, 1);
     box-shadow: none;
 
     appearance: none;
@@ -24,7 +25,6 @@ export const SelectStyled = styled(Select)`
     &:focus {
       color: #7b61ff;
       border-color: #7b61ff;
-      outline: 1px solid #7b61ff;
     }
   }
 
@@ -44,5 +44,36 @@ export const SelectStyled = styled(Select)`
     margin: 0;
     padding: 0;
     line-height: 1.15;
+  }
+
+  .Select__menu {
+    border: transparent;
+    margin-top: 18px;
+    margin-bottom: 0;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 2px 4px 9px 0px rgba(166, 141, 174, 0.28);
+    &-list {
+      padding: 0 16px;
+    }
+  }
+
+  .Select__option {
+    padding: 16px 0;
+
+    font-size: 16px;
+    color: #3f3f3f;
+    background-color: #fff;
+
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+
+    &:not(:first-child) {
+      border-top: 1px solid #aca7c3;
+    }
+
+    &:hover {
+      cursor: pointer;
+      color: #7b61ff;
+    }
   }
 `;

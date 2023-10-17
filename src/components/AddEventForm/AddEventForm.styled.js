@@ -65,12 +65,14 @@ export const InputStyled = styled.input`
 
   border-radius: 8px;
   border: 1px solid #aca7c3;
-  transition: color 300ms cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: color 300ms cubic-bezier(0.165, 0.84, 0.44, 1),
+    border-color 300ms cubic-bezier(0.165, 0.84, 0.44, 1);
 
   &:focus,
   &:hover {
     color: #7b61ff;
-    outline: 1px solid #7b61ff;
+    border-color: #7b61ff;
+    outline: none;
   }
 `;
 
