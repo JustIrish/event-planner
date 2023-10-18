@@ -97,29 +97,6 @@ export const TextareaStyled = styled.textarea`
   }
 `;
 
-export const SelectStyled = styled.select`
-  width: 100%;
-
-  padding: 16px 35px 16px 12px;
-  color: #3f3f3f;
-
-  font-size: 16px;
-  font-weight: 400;
-
-  border-radius: 8px;
-  border: 1px solid #aca7c3;
-  transition: color 300ms cubic-bezier(0.165, 0.84, 0.44, 1);
-
-  appearance: none;
-  cursor: pointer;
-
-  &:hover,
-  &:focus {
-    color: #7b61ff;
-    outline: 1px solid #7b61ff;
-  }
-`;
-
 export const ErrorStyled = styled.div`
   margin-top: 4px;
   padding: 0 15px;
@@ -154,9 +131,6 @@ export const SelectWrap = styled.div`
     cursor: pointer;
 
     pointer-events: none;
-
     transition: 300ms cubic-bezier(0.165, 0.84, 0.44, 1);
-
-    transform: ${prop => (prop.isOpen ? 'rotate(180deg)' : 'none')};
   }
 `;
