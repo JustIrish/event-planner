@@ -194,26 +194,13 @@ const AddEventForm = ({ event, btnTitle }) => {
           Category
           <SelectWrap>
             <SelectField
+              {...register('category')}
               fieldName="category"
               initValue={event ? event.category : null}
               icon={RiArrowDownSLine}
               data={categories}
               onSelect={onSeletClick}
             />
-            {/* <RiArrowDownSLine isOpen={isOpen} size="24" color="#7b61ff" />
-            <SelectStyled
-              {...register('category')}
-              placeholder="Select"
-              name="category"
-              onClick={handleSelectOpen}
-              onBlur={handleSelectClose}
-            >
-              {categories.map(category => (
-                <option key={category} value={category}>
-                  {category}
-                </option>
-              ))}
-            </SelectStyled> */}
           </SelectWrap>
         </LabelStyled>
         <LabelStyled style={{ color: '#ACA7C3' }}>
@@ -239,18 +226,6 @@ const AddEventForm = ({ event, btnTitle }) => {
               data={priority}
               onSelect={onSeletClick}
             />
-            {/* <RiArrowDownSLine isOpen={isOpen} size="24" color="#7b61ff" />
-            <SelectStyled
-              {...register('priority')}
-              placeholder="Select"
-              name="priority"
-              onClick={handleSelectOpen}
-              onBlur={handleSelectClose}
-            >
-              <option value="High">High</option>
-              <option value="Medium">Medium</option>
-              <option value="Low">Low</option>
-            </SelectStyled> */}
           </SelectWrap>
         </LabelStyled>
         <Button option="button" type="submit" title={btnTitle} />
