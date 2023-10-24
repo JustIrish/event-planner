@@ -1,28 +1,37 @@
+import { useState, forwardRef } from 'react';
 import { SelectStyled } from './SelectField.styled';
 
-const SelectField = ({ fieldName, icon: IconComponent, data, onSelect }) => {
-  const dataOptions = data.map(item => ({
-    value: item,
-    label: item,
-  }));
+const SelectField = forwardRef(
+  ({ fieldName, initValue, icon: IconComponent, data, onSelect }, ref) => {
+    const [selectedValue, setSelectedValue] = useState(initValue);
 
-  const handleOnChange = ({ value }) => {
-    onSelect(fieldName, value);
-  };
+    const dataOptions = data.map(item => ({
+      value: item,
+      label: item,
+    }));
 
-  return (
-    <SelectStyled
-      components={{
-        IndicatorSeparator: () => null,
-        DropdownIndicator: () => <IconComponent size="24" />,
-      }}
-      onChange={handleOnChange}
-      options={dataOptions}
-      className="react-select-container"
-      classNamePrefix="Select"
-      placeholder="Input"
-    />
-  );
-};
+    const handleOnChange = ({ value }) => {
+      setSelectedValue(value);
+      onSelect(fieldName, value);
+    };
+
+    return (
+      <SelectStyled
+        ref={ref}
+        components={{
+          IndicatorSeparator: () => null,
+          DropdownIndicator: () => <IconComponent size="24" />,
+        }}
+        defaultValue={selectedValue}
+        onChange={handleOnChange}
+        options={dataOptions}
+        maxMenuHeight={500}
+        className="react-select-container"
+        classNamePrefix="Select"
+        placeholder="Input"
+      />
+    );
+  }
+);
 
 export default SelectField;

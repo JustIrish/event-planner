@@ -195,6 +195,7 @@ const AddEventForm = ({ event, btnTitle }) => {
           <SelectWrap>
             <SelectField
               fieldName="category"
+              initValue={event ? event.category : null}
               icon={RiArrowDownSLine}
               data={categories}
               onSelect={onSeletClick}
@@ -231,7 +232,9 @@ const AddEventForm = ({ event, btnTitle }) => {
           Priority
           <SelectWrap>
             <SelectField
+              {...register('priority')}
               fieldName="priority"
+              initValue={event ? event.priority : null}
               icon={RiArrowDownSLine}
               data={priority}
               onSelect={onSeletClick}
