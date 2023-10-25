@@ -15,7 +15,7 @@ import {
   ErrorStyled,
   InputWrap,
   SelectWrap,
-} from './AddEventForm.styled';
+} from './EventForm.styled';
 import { RiArrowDownSLine } from 'react-icons/ri';
 import { VscClose } from 'react-icons/vsc';
 
@@ -27,7 +27,7 @@ import SelectField from './SelectField';
 
 const defaultPic = 'images/default-image.png';
 
-const AddEventForm = ({ event, btnTitle }) => {
+const EventForm = ({ event, btnTitle }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -64,7 +64,6 @@ const AddEventForm = ({ event, btnTitle }) => {
           priority,
         })
       );
-
       toast.success('New event has been added!');
     } else {
       dispatch(
@@ -234,4 +233,4 @@ const AddEventForm = ({ event, btnTitle }) => {
   );
 };
 
-export default AddEventForm;
+export default EventForm;

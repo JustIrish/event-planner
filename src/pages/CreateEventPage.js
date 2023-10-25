@@ -2,7 +2,7 @@ import { useLocation } from 'react-router-dom';
 
 import BackLink from 'components/BackLink/BackLink';
 import MainTitle from 'components/MainTitle/MainTitle';
-import AddEventForm from 'components/AddEventForm/AddEventForm';
+import EventForm from 'components/EventForm/EventForm';
 
 const CreateEvent = () => {
   const location = useLocation();
@@ -12,7 +12,7 @@ const CreateEvent = () => {
     <>
       <BackLink to={backLinkHref}>Back</BackLink>
       <MainTitle>Create new event</MainTitle>
-      <AddEventForm btnTitle="Add event" />
+      <EventForm btnTitle="Add event" />
     </>
   );
 };

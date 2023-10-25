@@ -4,7 +4,7 @@ import { selectEvents } from 'redux/events/selectors';
 
 import BackLink from 'components/BackLink/BackLink';
 import MainTitle from 'components/MainTitle/MainTitle';
-import AddEventForm from 'components/AddEventForm/AddEventForm';
+import EventForm from 'components/EventForm/EventForm';
 
 const EditEvent = () => {
   const location = useLocation();
@@ -18,7 +18,7 @@ const EditEvent = () => {
     <>
       <BackLink to={backLinkHref}>Back</BackLink>
       <MainTitle>Edit event</MainTitle>
-      <AddEventForm event={selectedEnent} btnTitle="Save" />
+      <EventForm event={selectedEnent} btnTitle="Save" />
     </>
   );
 };

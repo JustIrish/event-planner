@@ -22,7 +22,9 @@ const SelectField = forwardRef(
           IndicatorSeparator: () => null,
           DropdownIndicator: () => <IconComponent size="24" />,
         }}
-        defaultValue={{ label: selectedValue, value: selectedValue }}
+        defaultValue={
+          selectedValue && { label: selectedValue, value: selectedValue }
+        }
         onChange={handleOnChange}
         options={dataOptions}
         maxMenuHeight={500}
