@@ -20,7 +20,7 @@ const SelectField = forwardRef(
         ref={ref}
         components={{
           IndicatorSeparator: () => null,
-          DropdownIndicator: () => <IconComponent size="24" />,
+          DropdownIndicator: () => <IconComponent size="24" color="#7B61FF" />,
         }}
         defaultValue={
           selectedValue && { label: selectedValue, value: selectedValue }

@@ -24,6 +24,7 @@ import { categories } from 'data/categories';
 import { priority } from 'data/priority';
 import Button from 'components/Button/Button';
 import SelectField from './SelectField';
+import InputTime from './InputTime/InputTime';
 
 const defaultPic = 'images/default-image.png';
 
@@ -156,11 +157,15 @@ const EventForm = ({ event, btnTitle }) => {
         <LabelStyled>
           Select time
           <SelectWrap>
-            <InputStyled
+            <InputTime
               {...register('time', { required: 'required field' })}
-              placeholder="Input"
-              type="time"
-              name="time"
+              fieldName="time"
+              initValue={event ? event.time : null}
+              onSelect={onSeletClick}
+              style={{
+                outlineColor: errors.time && 'transparent',
+                borderColor: errors.time && '#FF2B77',
+              }}
             />
           </SelectWrap>
           {errors.time && <ErrorStyled>{errors.time.message}</ErrorStyled>}
