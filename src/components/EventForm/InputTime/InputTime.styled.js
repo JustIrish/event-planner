@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { RiArrowDownSLine } from 'react-icons/ri';
+import { mediaQueries } from 'styles/mediaQueries';
 
 export const StyledIconDown = styled(RiArrowDownSLine)`
   position: absolute;
@@ -21,7 +22,7 @@ export const TimePickerContainer = styled.div`
   width: 100%;
   height: 160px;
   padding: 0px 16px;
-  gap: 8px;
+  /* gap: 8px; */
 
   border-radius: 8px;
   background: #fff;
@@ -45,27 +46,29 @@ export const VisionLine = styled.div`
     top: -26px;
     left: 0;
 
-    width: 337px;
+    width: 208px;
     height: 48px;
     border-top: 1px solid #aca7c3;
 
     border-bottom: 1px solid #aca7c3;
+
+    ${mediaQueries('tablet')`
+    width: 276px;`};
+
+    ${mediaQueries('desktop')`
+      width: 340px;`};
   }
 
   &::before {
     content: ':';
     position: absolute;
     top: -13px;
-    left: 62px;
-
+    left: 55px;
     color: #3f3f3f;
-
-    @media screen and (min-width: 768px) {
-      left: 85px;
-    }
   }
 `;
 
 export const Selected = styled.div`
   color: ${p => p.$isActive && '#3f3f3f'};
+  font-weight: ${p => p.$isActive && '600'};
 `;

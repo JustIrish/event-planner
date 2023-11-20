@@ -5,8 +5,8 @@
 
 .swiperSlide {
   display: flex;
-  width: 73px;
-  padding: 12px 16px;
+  width: 45px;
+  padding: 12px 12px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
