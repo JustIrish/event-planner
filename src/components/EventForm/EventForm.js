@@ -198,14 +198,21 @@ const EventForm = ({ event, btnTitle }) => {
           Category
           <SelectWrap>
             <SelectField
-              {...register('category')}
+              {...register('category', { required: 'required field' })}
               fieldName="category"
               initValue={event ? event.category : null}
               icon={RiArrowDownSLine}
               data={categories}
               onSelect={onSeletClick}
+              style={{
+                outlineColor: errors.category && 'transparent',
+                borderColor: errors.category && '#FF2B77',
+              }}
             />
           </SelectWrap>
+          {errors.category && (
+            <ErrorStyled>{errors.category.message}</ErrorStyled>
+          )}
         </LabelStyled>
         <LabelStyled style={{ color: '#ACA7C3' }}>
           Add picture
@@ -223,14 +230,21 @@ const EventForm = ({ event, btnTitle }) => {
           Priority
           <SelectWrap>
             <SelectField
-              {...register('priority')}
+              {...register('priority', { required: 'required field' })}
               fieldName="priority"
               initValue={event ? event.priority : null}
               icon={RiArrowDownSLine}
               data={priority}
               onSelect={onSeletClick}
+              style={{
+                outlineColor: errors.priority && 'transparent',
+                borderColor: errors.priority && '#FF2B77',
+              }}
             />
           </SelectWrap>
+          {errors.priority && (
+            <ErrorStyled>{errors.priority.message}</ErrorStyled>
+          )}
         </LabelStyled>
         <Button option="button" type="submit" title={btnTitle} />
       </StyledForm>
