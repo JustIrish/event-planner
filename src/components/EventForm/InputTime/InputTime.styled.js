@@ -14,7 +14,7 @@ export const TimePickerContainer = styled.div`
   bottom: -18px;
   left: 0;
   transform: translateY(100%);
-  z-index: 25;
+  z-index: 2;
 
   display: flex;
   align-items: center;

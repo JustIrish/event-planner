@@ -13,22 +13,6 @@ export const StyledForm = styled.form`
   background-color: #fff;
   box-shadow: 2px 4px 9px 0px rgba(166, 141, 174, 0.28);
 
-  button {
-    padding: 16px 12px;
-    margin-top: 20px;
-
-    ${mediaQueries('tablet')`
-    position: absolute;
-    right: 24px;
-    bottom: 40px;
-    margin-top: 0;
-    width: 193px;`};
-
-    ${mediaQueries('desktop')`
-    right: 40px;
-    bottom: 54px;`};
-  }
-
   ${mediaQueries('tablet')`
   padding: 40px 24px;
   height: 656px;
@@ -132,5 +116,28 @@ export const SelectWrap = styled.div`
 
     pointer-events: none;
     transition: 300ms cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+`;
+
+export const BtnWrap = styled.div`
+  margin-top: 20px;
+
+  ${mediaQueries('tablet')`
+    position: absolute;
+    right: 24px;
+    bottom: 40px;
+    margin-top: 0;
+   `};
+
+  ${mediaQueries('desktop')`
+    right: 40px;
+    bottom: 54px;`};
+
+  button {
+    padding: 16px 12px;
+    width: 100%;
+
+    ${mediaQueries('tablet')`
+     width: 193px;`};
   }
 `;

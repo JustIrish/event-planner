@@ -15,6 +15,7 @@ import {
   ErrorStyled,
   InputWrap,
   SelectWrap,
+  BtnWrap,
 } from './EventForm.styled';
 import { RiArrowDownSLine } from 'react-icons/ri';
 import { VscClose } from 'react-icons/vsc';
@@ -25,6 +26,7 @@ import { priority } from 'data/priority';
 import Button from 'components/Button/Button';
 import SelectField from './SelectField';
 import InputTime from './InputTime/InputTime';
+import InputDate from './InputDate/InputDate';
 
 const defaultPic = 'images/default-image.png';
 
@@ -53,6 +55,7 @@ const EventForm = ({ event, btnTitle }) => {
       data;
 
     if (btnTitle === 'Add event') {
+      console.log(date);
       dispatch(
         addEvent({
           title,
@@ -145,11 +148,11 @@ const EventForm = ({ event, btnTitle }) => {
         <LabelStyled>
           Select date
           <SelectWrap>
-            <InputStyled
+            <InputDate
               {...register('date', { required: 'required field' })}
-              placeholder="Input"
-              type="date"
-              name="date"
+              fieldName="date"
+              initValue={event ? event.date : null}
+              onSelect={onSeletClick}
             />
           </SelectWrap>
           {errors.date && <ErrorStyled>{errors.date.message}</ErrorStyled>}
@@ -246,7 +249,9 @@ const EventForm = ({ event, btnTitle }) => {
             <ErrorStyled>{errors.priority.message}</ErrorStyled>
           )}
         </LabelStyled>
-        <Button option="button" type="submit" title={btnTitle} />
+        <BtnWrap>
+          <Button option="button" type="submit" title={btnTitle} />
+        </BtnWrap>
       </StyledForm>
     </>
   );

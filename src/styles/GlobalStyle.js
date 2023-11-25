@@ -11,7 +11,7 @@ export const GlobalStyle = createGlobalStyle`
          font-family: 'Poppins', sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-       
+        
          line-height: 1.43;
          background-color: #fefcff;
           background-image: url(${background});
