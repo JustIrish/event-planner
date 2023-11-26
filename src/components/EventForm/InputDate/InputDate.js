@@ -20,21 +20,19 @@ const InputDate = ({ fieldName, initValue, onSelect }) => {
     setIsOpen(prevState => !prevState);
   };
 
-  const onChange = data => {
-    console.log(format(date, 'dd.MM.yyyy'));
-    setDate(data);
+  const onChange = newData => {
+    const formatedDate = format(newData, 'yyyy-MM-dd');
+    setDate(formatedDate);
   };
 
   const onChoose = () => {
-    //console.log(date);
-    togglePopup();
-
     onSelect(fieldName, date);
+    togglePopup();
   };
 
   const handleCancelClick = () => {
-    togglePopup();
     setDate(initValue);
+    togglePopup();
   };
 
   return (
@@ -42,17 +40,20 @@ const InputDate = ({ fieldName, initValue, onSelect }) => {
       <InputStyled
         $date={date}
         $opened={isOpen}
+        id="date"
         name="date"
         style={{ cursor: 'pointer' }}
         placeholder={date ? date : 'Input'}
-        onClick={togglePopup}
       />
+
       <StyledIconDown
-        $opened={isOpen}
         onClick={togglePopup}
+        style={{ pointerEvents: 'auto' }}
+        $opened={isOpen}
         size="24"
         color="#7B61FF"
       />
+
       {isOpen && (
         <Popup>
           <StyledCalendar
@@ -65,8 +66,12 @@ const InputDate = ({ fieldName, initValue, onSelect }) => {
             value={date}
           />
           <BtnWrap>
-            <BtnCancel onClick={handleCancelClick}>Cancel</BtnCancel>
-            <BtnChoose onClick={onChoose}>Choose date</BtnChoose>
+            <BtnCancel onClick={handleCancelClick} type="button">
+              Cancel
+            </BtnCancel>
+            <BtnChoose onClick={onChoose} type="button">
+              Choose date
+            </BtnChoose>
           </BtnWrap>
         </Popup>
       )}
