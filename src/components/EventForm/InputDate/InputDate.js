@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { format } from 'date-fns';
 
 import {
+  InputIconWrap,
   StyledIconDown,
   Popup,
   BtnWrap,
@@ -17,6 +18,7 @@ const InputDate = ({ fieldName, initValue, onSelect }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const togglePopup = () => {
+    console.log('вызов togglePopup');
     setIsOpen(prevState => !prevState);
   };
 
@@ -45,14 +47,9 @@ const InputDate = ({ fieldName, initValue, onSelect }) => {
         style={{ cursor: 'pointer' }}
         placeholder={date ? date : 'Input'}
       />
-
-      <StyledIconDown
-        onClick={togglePopup}
-        style={{ pointerEvents: 'auto' }}
-        $opened={isOpen}
-        size="24"
-        color="#7B61FF"
-      />
+      <InputIconWrap onClick={togglePopup}>
+        <StyledIconDown $opened={isOpen} size="24" color="#7B61FF" />
+      </InputIconWrap>
 
       {isOpen && (
         <Popup>

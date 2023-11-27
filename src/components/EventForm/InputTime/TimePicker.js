@@ -6,7 +6,7 @@ import { Selected, TimePickerContainer, VisionLine } from './InputTime.styled';
 
 export const TimePicker = ({ onSelectTime }) => {
   const [selectedHour, setSelectedHour] = useState(12);
-  const [selectedMinute, setSelectedMinute] = useState(15);
+  const [selectedMinute, setSelectedMinute] = useState(0);
   const [selectedPeriod, setSelectedPeriod] = useState('AM');
 
   const hours = Array.from({ length: 12 }, (_, index) => index + 1);
@@ -64,7 +64,7 @@ export const TimePicker = ({ onSelectTime }) => {
         spaceBetween={0}
         mousewheel={true}
         modules={[Mousewheel]}
-        initialSlide={15}
+        initialSlide={0}
         onSlideChange={swiper => {
           handleMinuteChange(timeFormat(minutes[swiper.activeIndex]));
         }}

@@ -2,6 +2,15 @@ import styled from 'styled-components';
 import { RiArrowDownSLine } from 'react-icons/ri';
 import Calendar from 'react-calendar';
 
+export const InputIconWrap = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+`;
+
 export const StyledIconDown = styled(RiArrowDownSLine)`
   position: absolute;
   top: 50%;
