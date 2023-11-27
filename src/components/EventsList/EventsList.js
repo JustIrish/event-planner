@@ -1,7 +1,12 @@
 import { useSelector } from 'react-redux';
 import EventCard from 'components/EventsList/EventCard';
 
-import { selectEvents, selectFilter, selectSort } from 'redux/events/selectors';
+import {
+  selectEvents,
+  selectFilter,
+  selectSort,
+  selectQuery,
+} from 'redux/events/selectors';
 import { CardList } from './EventsList.styled';
 
 const priorities = { Low: 1, Medium: 2, High: 3 };
@@ -10,10 +15,11 @@ const EventsList = () => {
   const events = useSelector(selectEvents);
   const filter = useSelector(selectFilter);
   const sort = useSelector(selectSort);
+  const query = useSelector(selectQuery);
 
   let visibleEvents;
 
-  if (!filter && !sort) {
+  if (!filter && !sort && !query) {
     visibleEvents = events;
   } else {
     visibleEvents = events
@@ -41,7 +47,12 @@ const EventsList = () => {
           default:
             return a - b;
         }
-      });
+      })
+      .filter(
+        event =>
+          event.title.toLocaleLowerCase().includes(query) ||
+          event.description.toLocaleLowerCase().includes(query)
+      );
   }
 
   return (
