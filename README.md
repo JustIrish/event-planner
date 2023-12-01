@@ -7,6 +7,8 @@
 ## <ul>Main functionality:</ul>
 
 <li>On the main page, you can view all upcoming events.</li>
+<li>You can also filter events by category or sort them by date or priority on the main page</li>
+<li>Search for events by keyword is implemented</li>
 <li>It is possible to add a new event by filling out the information form and choosing the priority and category of the event.</li>
 
 ![Create event page](./src/images/create-event-page.jpg)
@@ -19,11 +21,15 @@
 ## Used technologies:
 
 - React.js
+- React-redux
 - Redux-toolkit
 - React-Router-Dom
 - Styled Components
 - React-hook-form
+- React-select
+- React-calendar
+- Swiper for date picker
 - React-hot-toast for toast notifications
 
-The stylization implements a responsive layout with three breakpoints: 320px, 768px, 1280px.
-Use the Mobile first approach.
+The stylization implements a responsive layout with three breakpoints: 320px,
+768px, 1280px. Use the Mobile first approach.
