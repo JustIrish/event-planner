@@ -17,7 +17,7 @@ export const GlobalStyle = createGlobalStyle`
           background-image: url(${background});
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: 30%;
+  background-attachment: fixed;
 
   ${mediaQueries('tablet')`
     
