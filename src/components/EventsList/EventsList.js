@@ -32,17 +32,17 @@ const EventsList = () => {
         const priorityB = priorities[b.priority];
 
         switch (sort) {
-          case 'Name to Z':
+          case 'by name ↑':
             return a.title.localeCompare(b.title);
-          case 'Name to A':
+          case 'by name ↓':
             return b.title.localeCompare(a.title);
-          case 'Date soon':
+          case 'by date ↑':
             return dateA - dateB;
-          case 'Date far':
+          case 'dy date ↓':
             return dateB - dateA;
-          case 'Priority to low':
+          case 'by priority ↑':
             return priorityB - priorityA;
-          case 'Priority to high':
+          case 'by priority ↓':
             return priorityA - priorityB;
           default:
             return a - b;
